@@ -28,6 +28,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_14_151606) do
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "time_start", precision: nil
+    t.datetime "time_end", precision: nil
+    t.decimal "total_price"
+    t.bigint "user_id", null: false
+    t.bigint "activity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_bookings_on_activity_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -45,4 +57,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_14_151606) do
   end
 
   add_foreign_key "activities", "users"
+  add_foreign_key "bookings", "activities"
+  add_foreign_key "bookings", "users"
 end
