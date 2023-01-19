@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
-  before_action: set_booking, only: %i[new create]
+  before_action :set_booking, only: %i[edit update]
 
   # user_bookings GET    /users/:user_id/bookings(.:format)
   def index
+    @user = User.find(params[:user_id])
     @bookings = @user.bookings
   end
 
@@ -13,20 +14,22 @@ class BookingsController < ApplicationController
 
   # activity_bookings POST   /activities/:activity_id/bookings(.:format)
   def create
-    @booking = Booking.new(booking_params)
-    @booking.activity = @activity
-    @booking.save
-    redirect_to activity_path(@activity)
+    @booking = Booking.new(booking_params) #create a new booking from the filled form
+    @activity = Activity.find(params[:activity_id]) #find the activity from the params
+    @booking.activity = @activity #associate the activity to the created booking
+    if @booking.save
+      redirect_to activity_path(@activity) #redirect to the activity page
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   # edit_booking GET    /bookings/:id/edit(.:format)
   def edit
-    @booking = Booking.find(params[:id])
   end
 
   # booking PATCH or PUT /bookings/:id(.:format)
   def update
-    @booking
     if @booking.update(booking_params)
       redirect_to user_bookings(@booking.user_id), notice: "Booking was successfully updated."
     else
@@ -37,7 +40,7 @@ class BookingsController < ApplicationController
   private
 
   def set_booking
-    @booking = Booking.find(params[:activity_id])
+    @booking = Booking.find(params[:id])
   end
 
   def booking_params
