@@ -1,2 +1,9 @@
 <h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<h2>Describe your activity</h2>
+<p>Help other users find the right experience for their activity.</p>
+<p>How was your experience?</p>
+<%= simple_form_for [@booking, @review] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :comment %>
+  <%= f.submit %>
+<% end %>
