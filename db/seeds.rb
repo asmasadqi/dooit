@@ -14,6 +14,7 @@ puts "Database cleaned"
 puts 'Creating 10 fake users...'
 
 users = []
+activities = []
 categories = ["Art & Culture", "Entertainment", "Food & Drink", "Sports", "Tours", "Sightseeing", "Nature & Outdoors"]
 
 10.times do |i|
@@ -24,11 +25,9 @@ categories = ["Art & Culture", "Entertainment", "Food & Drink", "Sports", "Tours
     email: Faker::Internet.user('email'),
     password: Faker::Internet.password,
   )
-  puts "Created user with id #{user.id}"
+  puts "Created user in DB with id #{user.id}"
   users << user
 end
-
-puts users
 
 10.times do |i|
   activity = Activity.create(
@@ -38,7 +37,17 @@ puts users
     category: categories.sample,
     localization: Faker::Address.city
   )
-  puts "Created activity with id #{activity.id}"
+  puts "Created activity in DB with id #{activity.id}"
+  activities << activity
+end
+
+# create 5 bookings
+5.times do |i|
+  booking = Booking.create(
+    user_id: users.sample.id,
+    activity_id: activities.sample.id
+  )
+  puts "Created booking in DB with id #{booking.id}"
 end
 
 puts "Finished!"
