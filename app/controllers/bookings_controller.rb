@@ -15,9 +15,10 @@ class BookingsController < ApplicationController
 
   # activity_bookings POST   /activities/:activity_id/bookings(.:format)
   def create
+    @user = current_user
     @booking = Booking.new(booking_params) #create a new booking from the filled form
     @booking.activity = @activity #associate the activity to the created booking
-    @booking.user = User.find(31)
+    @booking.user = @user
     if @booking.save
       redirect_to activity_path(@activity) #redirect to the activity page
     else
