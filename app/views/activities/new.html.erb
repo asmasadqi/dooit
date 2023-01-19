@@ -1,0 +1,10 @@
+<h1>Create a new activity</h1>
+<%= simple_form_for @activity do |f| %>
+  <%= f.input :title, placeholder: 'Specify your title' %>
+  <%= f.input :description, placeholder: 'Your description here' %>
+  <%= f.input :category, collection: ["Art & Culture", "Entertainment", "Food & Drink", "Sports", "Tours", "Sightseeing", "Nature & Outdoors"], :label => "Choose a category" %>
+  <%= f.input :localization, placeholder: 'Where is your activity?' %>
+  <%= f.input :price_per_day, placeholder: 'What is your price?' %>
+  <%= f.input :max_persons, placeholder: 'How many persons could join?' %>
+  <%= f.button :submit, class: "btn-primary" %>
+<% end %>

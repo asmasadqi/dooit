@@ -51,6 +51,9 @@ gem "sassc-rails"
 # Use devise for sign in sign up
 gem "devise"
 
+# Use faker for seeds
+gem "faker"
+
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
