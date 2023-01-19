@@ -1,12 +1,27 @@
-.navbar-lewagon {
+.navglobal {
   justify-content: space-between;
   background: white;
+  position:fixed
+  width 100%
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+
+}
+
+.form-control {
+  border-radius: 20px;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.host {
+  border-radius: 20px;
+  &:hover {
+    background:rgb(245, 244, 244);
+    border-radius: 20px;
+  }
 }
