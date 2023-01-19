@@ -1,2 +1,73 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.card-4 {
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+.card-1{
+  margin: 30px 60px 30px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 80px;
+}
+
+.cards-container {
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(64, 61, 61);
+}
+
+a:hover {
+  color: black;
+}
+
+.gray {
+  color: gray;
+}
+
+.lol {
+  border-radius: 25px;
+}
+
+.black {
+  color: black;
+}
+
+.container-3 {
+  width: 100%;
+}
+
+.load-more {
+  width: 100%;
+  padding: 10px;
+  background-color: gray;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  /* Add more styles as desired */
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.shadow-bottom {
+  box-shadow: 0px 15px 10px -15px rgb(94, 92, 92);
+}
