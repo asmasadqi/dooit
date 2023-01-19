@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[edit update]
+  before_action :set_activity, only: %i[new create]
 
   # user_bookings GET    /users/:user_id/bookings(.:format)
   def index
@@ -15,8 +16,8 @@ class BookingsController < ApplicationController
   # activity_bookings POST   /activities/:activity_id/bookings(.:format)
   def create
     @booking = Booking.new(booking_params) #create a new booking from the filled form
-    @activity = Activity.find(params[:activity_id]) #find the activity from the params
     @booking.activity = @activity #associate the activity to the created booking
+    @booking.user = User.find(31)
     if @booking.save
       redirect_to activity_path(@activity) #redirect to the activity page
     else
@@ -39,11 +40,15 @@ class BookingsController < ApplicationController
 
   private
 
+  def set_activity
+    @activity = Activity.find(params[:activity_id])
+  end
+
   def set_booking
     @booking = Booking.find(params[:id])
   end
 
   def booking_params
-    params.require(:booking).params([:time_start, :time_end, :total_price])
+    params.require(:booking).permit([:time_start, :time_end, :total_price])
   end
 end
