@@ -1,27 +1,45 @@
-<div class="container">
-  <h1>Confirm your booking</h1>
+<div class="container booking">
+  <div class="booking-header">
+    <%= link_to activity_path(@activity) do %>
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    <% end %>
+    <h1>Confirm your booking</h1>
+  </div>
+  <div class="row booking-container">
+    <div class="col">
+      <div class="book-form">
+        <h2><%= @activity.title %></h2>
+        <%= simple_form_for [@activity, @booking], html: { data: { controller: 'flatpickr' } } do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <h2>Your chosen activity</h2>
-  <div class="row">
-    <div class="col">  
-      <%= simple_form_for [@activity, @booking] do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-        <div class="form-inputs">
-          <%= f.input :time_start %>
-          <%= f.input :time_end %>
-          <% if @activity.price_per_day != nil %>
-            <%= f.input :total_price %>
-          <% end %>
-        </div>
-
-        <div class="form-actions">
-          <%= f.submit "Book Activity", class: "btn btn-primary" %>
-        </div>
-      <% end %>
+          <div class="form-inputs">
+            <%= f.input :time_start, label:'Start Date', as: :string, 
+              input_html: { 
+                data: { 
+                  flatpickr_target: 'startDateInput', 
+                } 
+              } %>
+            <%= f.input :time_end, label:'End Date', as: :string, input_html: { data: { flatpickr_target: 'endDateInput' } } %>
+            <% if @activity.price_per_day != nil %>
+              <%= f.input :total_price, label:'Total price' %>
+            <% end %>
+          </div>
+          <div class="form-actions">
+            <%= f.submit "Book Activity", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="col">
+      <div class="book-activity-recap">
+        <h3>Your activity: <%= @activity.title %></h3>
+        <p><%= @activity.description %></p>
+        <p><%= @activity.category %></p>
+        <p><%= @activity.localization %></p>
+        <p><%= @activity.price_per_day %></p>
+        <p><%= @activity.average_rating %></p>
+      </div>
     </div>
   </div>
 </div>
