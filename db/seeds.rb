@@ -35,7 +35,6 @@ activity = Activity.create(
   image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
   # image = activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/seed_activity/fishing.jpeg')), filename: 'fishing.jpeg')
 )
-
 activity = Activity.create(
   user_id: users.sample.id,
   title: "Cooking",
@@ -46,7 +45,6 @@ activity = Activity.create(
   image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
   # image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/seed_activity/cooking.jpeg')), filename: 'cooking.jpeg')
 )
-
 activity = Activity.create(
   user_id: users.sample.id,
   title: "Surf",
@@ -57,7 +55,6 @@ activity = Activity.create(
   image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
   # image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/seed_activity/sruf.jpeg')), filename: 'surf.jpeg')
 )
-
 activity = Activity.create(
   user_id: users.sample.id,
   title: "Sightseeing in Rome",
@@ -68,7 +65,6 @@ activity = Activity.create(
   image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
   # image: activities.image.attach(io: File.open(File.join(Rails.root,'app/assets/images/seed_activity/rome.jpeg')), filename: 'rome.jpeg')
 )
-
 activity = Activity.create(
   user_id: users.sample.id,
   title: "Snowboard",
@@ -79,7 +75,6 @@ activity = Activity.create(
   image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
   # image: activities.image.attach(io:  File.open(File.join(Rails.root, 'app/assets/images/seed_activity/snowboard.jpeg')), filename: 'snowboard.jpeg')
 )
-
 activity = Activity.create(
   user_id: users.sample.id,
   title: "Wine Tasting",
@@ -90,7 +85,6 @@ activity = Activity.create(
   image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
   # image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/seed_activity/wine_tasting.jpeg')), filename: 'wine_tasting.jpeg')
 )
-
 activity = Activity.create(
   user_id: users.sample.id,
   title: "Bouldering",
@@ -101,7 +95,6 @@ activity = Activity.create(
   image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
   # image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/seed_activity/bouldering.jpeg')), filename: 'bouldering.jpeg')
 )
-
 activity = Activity.create(
   user_id: users.sample.id,
   title: "Escape Game",
@@ -112,7 +105,7 @@ activity = Activity.create(
   image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
   # image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/seed_activity/escape_game.jpeg')), filename: 'escape_game.jpeg')
 )
-  Activity.create(
+activity = Activity.create(
   user_id: users.sample.id,
   title: "Buggy Rental",
   description: "Rent your own buggy for the day to take a nice tour in the desert of Namibia. Local guides will follow your ride to take you to breathtaking spots",
@@ -122,7 +115,6 @@ activity = Activity.create(
   image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
   # image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/seed_activity/buggy.jpeg')), filename: 'buggy.jpeg')
 )
-
 activity = Activity.create(
   user_id: users.sample.id,
   title: "Pottery",
@@ -133,7 +125,6 @@ activity = Activity.create(
   image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
   # image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/seed_activity/pottery.jpeg')), filename: 'pottery.jpeg')
 )
-
 activity = Activity.create(
   user_id: users.sample.id,
   title: "Tour in Rio",
@@ -144,7 +135,6 @@ activity = Activity.create(
   image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
   # image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/seed_activity/rio.jpeg')), filename: 'rio.jpeg')
 )
-
 activity = Activity.create(
   user_id: users.sample.id,
   title: "Desert tour",
@@ -155,7 +145,6 @@ activity = Activity.create(
   image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
   # image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/seed_activity/camel.jpeg')), filename: 'camel.jpeg')
 )
-# puts "Created activity in DB with id #{activity.id}"
 activities << activity
 puts "Created activity in DB with id #{activity.id}"
 
