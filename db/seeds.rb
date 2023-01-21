@@ -8,6 +8,9 @@
 require 'faker'
 
 puts "Cleaning up database..."
+Review.destroy_all
+Booking.destroy_all
+Activity.destroy_all
 User.destroy_all
 puts "Database cleaned"
 
@@ -33,7 +36,7 @@ end
   activity = Activity.create(
     user_id: users.sample.id,
     title: Faker::Hobby.activity,
-    description: Faker::String.random(length: 3..12),
+    description: Faker::Lorem.paragraphs,
     category: categories.sample,
     localization: Faker::Address.city
   )
