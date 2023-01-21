@@ -63,10 +63,10 @@
         <div class="card-4 " style="background-image: url(<%=activity.image%>); border-radius: 20px"></div>
         <span class="black"><%=activity.title%></span><br>
         <span class="gray"><%=activity.description%></span><br>
-        <span class="black"><% if activity.price_per_day != 0 %>
-        <%=puts activity.price_per_day%>
+        <span class="black"><%if activity.price_per_day != 0 %>
+        <%=activity.price_per_day %> €
         <%else%>
-        <%puts "Free activity"%>
+        <%="Free activity"%>
         <%end%>
         </span>
       <% end %>
