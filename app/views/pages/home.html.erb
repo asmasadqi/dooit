@@ -1,0 +1,18 @@
+<%= render 'shared/navbar' %>
+
+<div class="banner-container text-center">
+  <div class="row">
+    <div class="home-text col-4 d-flex flex-column justify-content-between">
+      <h1>Find <strong>experiences</strong>, <strong>wherever</strong> you go</h1>
+      <p>You'll never get bored with Do it</p>
+      <%= link_to activities_path do %>
+        <button class="btn btn-primary">Find now</button>
+      <% end %>
+    </div>
+    <div class="home-image col-8">
+      <img src="https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="">
+    </div>
+  </div>
+</div>
+
+<%= render 'shared/footer' %>
