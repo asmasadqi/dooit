@@ -2,54 +2,56 @@
   <%= render "shared/navbar" %>
 
 <div class="border-top">
-  <div class="d-flex justify-content-around mt-4 mb-4 shadow-bottom">
+  <div id="category" data-controller="change-category" class="d-flex justify-content-around mt-4 mb-4 shadow-bottom">
+      <a href="#">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style=""><i class="fa-solid fa-palette "></i></div>
+          <div style=""><span class="d-block border-bottom border-dark">Art & Culture</span></div>
+        </div>
+      </a>
 
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-      <div style=""><i class="fa-solid fa-palette "></i></div>
-      <div style=""><span class="d-block border-bottom border-dark">Art & Culture</span></div>
+      <a href="#">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style=""><i class="fa-solid fa-sun"></i></div>
+          <div style=""><span class="d-block">Entertainment</span></div>
+        </div>
+      </a>
+
+      <a href="#">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style=""><i class="fas fa-utensils "></i></div>
+          <div style=""><span class="d-block">Food & Drink</span></div>
+        </div>
+      </a>
+
+      <a href="">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style=""><i class="fa-solid fa-dumbbell"></i></div>
+          <div style=""><span class="d-block">Sport</span></div>
+        </div>
+      </a>
+
+      <a href="">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style=""><i class="fas fa-archway"></i></div>
+          <div style=""><span class="d-block">Tours</span></div>
+        </div>
+      </a>
+
+      <a href="#">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style=""><i class="fa-solid fa-sun"></i></div>
+          <div style=""><span class="d-block">Sightseeing</span></div>
+        </div>
+      </a>
+
+      <a href="#">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style=""><i class="fa-solid fa-sun"></i></div>
+          <div style=""><span class="d-block">Nature & Outdoors</span></div>
+        </div>
+      </a>
     </div>
-
-    <a href="#">
-      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <div style=""><i class="fa-solid fa-sun"></i></div>
-        <div style=""><span class="d-block">Entertainment</span></div>
-      </div>
-    </a>
-
-    <a href="#">
-      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <div style=""><i class="fas fa-utensils "></i></div>
-        <div style=""><span class="d-block">Food & Drink</span></div>
-      </div>
-    </a>
-
-    <a href="">
-      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <div style=""><i class="fa-solid fa-dumbbell"></i></div>
-        <div style=""><span class="d-block">Sport</span></div>
-      </div>
-    </a>
-
-    <a href="">
-      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <div style=""><i class="fas fa-archway"></i></div>
-        <div style=""><span class="d-block">Tours</span></div>
-      </div>
-    </a>
-
-    <a href="#">
-      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <div style=""><i class="fa-solid fa-sun"></i></div>
-        <div style=""><span class="d-block">Sightseeing</span></div>
-      </div>
-    </a>
-
-    <a href="#">
-      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <div style=""><i class="fa-solid fa-sun"></i></div>
-        <div style=""><span class="d-block">Nature & Outdoors</span></div>
-      </div>
-    </a>
   </div>
 </div>
 </div>
@@ -58,10 +60,15 @@
   <div class="card-1">
     <% @activities.each do |activity| %>
       <%= link_to activity_path(activity) do %>
-        <div class="card-4 " style="background-image: url(); border-radius: 20px"></div>
+        <div class="card-4 " style="background-image: url(<%=activity.image%>); border-radius: 20px"></div>
         <span class="black"><%=activity.title%></span><br>
         <span class="gray"><%=activity.description%></span><br>
-        <span class="black">Price</span>
+        <span class="black"><% if activity.price_per_day != 0 %>
+        <%=puts activity.price_per_day%>
+        <%else%>
+        <%puts "Free activity"%>
+        <%end%>
+        </span>
       <% end %>
     <% end %>
 
