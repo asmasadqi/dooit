@@ -39,6 +39,7 @@ end
     description: Faker::Lorem.paragraphs,
     category: categories.sample,
     localization: Faker::Address.city,
+    price_per_day: rand(1...150),
     image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'sightseeing', 'food'])
   )
   puts "Created activity in DB with id #{activity.id}"
