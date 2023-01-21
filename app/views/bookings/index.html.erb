@@ -1,10 +1,10 @@
 <%= render "shared/navbar" %>
-<div class=“container”>
-  <div class=“booking-header”>
+<div class="container">
+  <div class="booking-header">
     <h1>Your bookings</h1>
   </div>
   <% @bookings.each do |booking| %>
-    <div class=“booking-item”>
+    <div class="booking-item">
       <h2><%= booking.activity.title %></h2>
       <p>From: <%= booking.time_start %> To: <%= booking.time_end %></p>
       <p>Total price: <%= booking.total_price %></p>

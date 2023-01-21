@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
 
   # user_bookings GET    /users/:user_id/bookings(.:format)
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
     @bookings = @user.bookings
   end
 

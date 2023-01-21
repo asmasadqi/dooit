@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ChangeCategoryController from "./change_category_controller"
+application.register("change-category", ChangeCategoryController)
+
 import DynamicBookingPriceController from "./dynamic_booking_price_controller"
 application.register("dynamic-booking-price", DynamicBookingPriceController)
 
