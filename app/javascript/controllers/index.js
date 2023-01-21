@@ -4,5 +4,14 @@
 
 import { application } from "./application"
 
+import ChangeCategoryController from "./change_category_controller"
+application.register("change-category", ChangeCategoryController)
+
+import DynamicBookingPriceController from "./dynamic_booking_price_controller"
+application.register("dynamic-booking-price", DynamicBookingPriceController)
+
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

@@ -1,5 +1,12 @@
 class ActivitiesController < ApplicationController
 
+  # TODO
+  # Créer une sorted_list (en hash) avec deux arguments : category et activity
+  # Ceci va nous permettre de savoir qu'une activity appartient à telle category
+  # Aller dans la vue et créer un bloc par category
+  # Ajouter la class hidden aux category non concernées par la zone sélectionnée
+  # Seules la category sans cette class apparaîtra dans le champ sélectionné
+
   def index
     @activities = Activity.all
   end
