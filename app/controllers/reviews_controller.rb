@@ -1,14 +1,14 @@
 class ReviewsController < ApplicationController
   def new
-    @activity = Activity.find(params[:activity_id])
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
-    @activity = Activity.find(params[:activity_id])
-    @review.activity = @activity
-
+    @booking = Booking.find(params[:booking_id])
+    @review.booking = @booking
+    @activity = @booking.activity
     if @review.save
       redirect_to activity_path(@activity)
     else
