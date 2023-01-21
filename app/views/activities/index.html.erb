@@ -56,14 +56,16 @@
 </div>
 
   <div class="card-1">
-    <a href="#">
-      <div class="card-4 " style="background-image: url(https://source.unsplash.com/tXmc2mVDxJc/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
+    <% @activities.each do |activity| %>
+      <%= link_to activity_path(activity) do %>
+        <div class="card-4 " style="background-image: url(); border-radius: 20px"></div>
+        <span class="black"><%=activity.title%></span><br>
+        <span class="gray"><%=activity.description%></span><br>
+        <span class="black">Price</span>
+      <% end %>
+    <% end %>
 
-    <a href="#">
+    <%# <a href="#">
       <div class="card-4" style="background-image: url(https://source.unsplash.com/znoL1m6MD_k/1000x500); border-radius: 20px"></div>
       <span class="black">Title</span><br>
       <span class="gray">Description</span><br>
@@ -187,7 +189,7 @@
       <span class="black">Title</span><br>
       <span class="gray">Description</span><br>
       <span class="black">Price</span>
-    </a>
+    </a> %>
 
   </div>
 
