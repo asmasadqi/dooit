@@ -14,7 +14,6 @@
       </ul>
     </div>
     <div class="col-md-8">
-      <div class="form-inputs">
         <%= form_with url: activities_path, method: :get, class:"input-group dooit-search-bar" do %>
           <%= text_field_tag :query,
                       params[:query],
@@ -22,7 +21,6 @@
                       placeholder:"What do you want to do?"  %>
           <%= submit_tag "Search", class:"btn btn-outline-secondary" %>
         <% end %>
-      </div>
     </div>
     <button class="btn"><i class="fa fa-user"></i> Login</button>
   </div>

@@ -9,7 +9,7 @@ class ActivitiesController < ApplicationController
 
   def index
     if params[:query].present?
-      @activities = Activity.where(title: params[:query])
+      @activities = Activity.search_by_title_description_category(params[:query])
     else
       @activities = Activity.all
     end    
