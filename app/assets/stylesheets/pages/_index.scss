@@ -22,10 +22,6 @@
   grid-gap: 80px;
 }
 
-.cards-container {
-  display: flex;
-}
-
 a {
   text-decoration: none;
   color: rgb(64, 61, 61);
@@ -37,10 +33,6 @@ a:hover {
 
 .gray {
   color: gray;
-}
-
-.lol {
-  border-radius: 25px;
 }
 
 .black {
@@ -70,3 +62,18 @@ a:hover {
 .shadow-bottom {
   box-shadow: 0px 15px 10px -15px rgb(94, 92, 92);
 }
+
+.card-for-the-price{
+  position: relative;
+}
+
+.price-bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+// .description {
+//   max-height: 5px; /* set maximum height */
+//   overflow: hidden; /* hide overflow */
+// }
