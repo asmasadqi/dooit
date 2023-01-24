@@ -1,10 +1,19 @@
-<h1>Edit <%= @activity.title %></h1>
-<%= simple_form_for @activity do |f| %>
-  <%= f.input :title, placeholder: 'Specify your title' %>
-  <%= f.input :description, placeholder: 'Your description here' %>
-  <%= f.input :category, collection: ["Art & Culture", "Entertainment", "Food & Drink", "Sports", "Tours", "Sightseeing", "Nature & Outdoors"], :label => "Choose a category" %>
-  <%= f.input :localization, placeholder: 'Where is your activity?' %>
-  <%= f.input :price_per_day, placeholder: 'What is your price?' %>
-  <%= f.input :max_persons, placeholder: 'How many persons could join?' %>
-  <%= f.button :submit, class: "btn-primary" %>
-<% end %>
+<h1 class="p-3">Edit <%= @activity.title %></h1>
+<div class="d-flex p-3 bd-highlight">
+  <div class="row">
+    <div class="col-4">
+      <%= simple_form_for @activity do |f| %>
+        <%= f.input :title, placeholder: 'Specify your title' %>
+        <%= f.input :description, placeholder: 'Your description here' %>
+        <%= f.input :category, collection: ["Culture", "Entertainment", "Food", "Sports", "Tours", "Sightseeing", "Outdoors"], :label => "Choose a category" %>
+        <%= f.input :localization, placeholder: 'Where is your activity?' %>
+        <%= f.input :price_per_day, placeholder: 'What is your price?' %>
+        <%= f.input :max_persons, placeholder: 'How many persons could join?' %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <div class="col-8">
+      <img src="https://images.unsplash.com/photo-1519233181562-35b0b8bb2b1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1774&q=80" class="d-block w-100" alt="2 people doing pottery">
+    </div>
+  </div>
+</div>

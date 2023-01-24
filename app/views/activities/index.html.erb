@@ -1,211 +1,87 @@
 <div class="sticky-top bg-light">
-  <%= render "shared/navbar" %>
-
-<div class="border-top">
-  <div id="category" data-controller="change-category" class="d-flex justify-content-around mt-4 mb-4 shadow-bottom">
-      <a href="#">
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-          <div style=""><i class="fa-solid fa-palette "></i></div>
-          <div style=""><span class="d-block border-bottom border-dark">Art & Culture</span></div>
+  <%= render "shared/navbar"%>
+    <div class="border-top">
+      <div id="category" class="d-flex justify-content-around pt-2 pb-2 shadow-bottom">
+        <div id="myBtnContainer pb-4">
+          <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+          <button class="btn" onclick="filterSelection('Culture')"> Art & Culture</button>
+          <button class="btn" onclick="filterSelection('Entertainment')"> Entertainment</button>
+          <button class="btn" onclick="filterSelection('Food')"> Food & Drinks</button>
+          <button class="btn" onclick="filterSelection('Sports')"> Sports</button>
+          <button class="btn" onclick="filterSelection('Tours')">Tours</button>
+          <button class="btn" onclick="filterSelection('Sightseeing')"> Sightseeing</button>
+          <button class="btn" onclick="filterSelection('Outdoors')"> Nature & Outdoors</button>
         </div>
-      </a>
-
-      <a href="#">
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-          <div style=""><i class="fa-solid fa-sun"></i></div>
-          <div style=""><span class="d-block">Entertainment</span></div>
-        </div>
-      </a>
-
-      <a href="#">
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-          <div style=""><i class="fas fa-utensils "></i></div>
-          <div style=""><span class="d-block">Food & Drink</span></div>
-        </div>
-      </a>
-
-      <a href="">
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-          <div style=""><i class="fa-solid fa-dumbbell"></i></div>
-          <div style=""><span class="d-block">Sport</span></div>
-        </div>
-      </a>
-
-      <a href="">
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-          <div style=""><i class="fas fa-archway"></i></div>
-          <div style=""><span class="d-block">Tours</span></div>
-        </div>
-      </a>
-
-      <a href="#">
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-          <div style=""><i class="fa-solid fa-sun"></i></div>
-          <div style=""><span class="d-block">Sightseeing</span></div>
-        </div>
-      </a>
-
-      <a href="#">
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-          <div style=""><i class="fa-solid fa-sun"></i></div>
-          <div style=""><span class="d-block">Nature & Outdoors</span></div>
-        </div>
-      </a>
+      </div>
     </div>
   </div>
-</div>
-</div>
-</div>
-
   <div class="card-1">
-    <% @activities.each do |activity| %>
-      <%= link_to activity_path(activity) do %>
-        <div class="card-4 " style="background-image: url(<%=activity.image%>); border-radius: 20px"></div>
-        <span class="black"><%=activity.title%></span><br>
-        <span class="gray"><%=activity.description%></span><br>
-        <span class="black"><%if activity.price_per_day != 0 %>
-        <%=activity.price_per_day %> €
-        <%else%>
-        <%="Free activity"%>
-        <%end%>
-        </span>
+  <% @activities.each do |activity| %>
+  <div class="card-for-the-price filterDiv card-details<%=activity.category%>">
+    <%= link_to activity_path(activity) do %>
+      <div class="card-4 " style="background-image: url(<%=activity.image%>); border-radius: 6px"></div>
+      <h5 class="text-title pt-2"><%=activity.title%></h5>
+      <p class="text-body"><%=activity.description%></p><br>
+      <p class="black price-bottom-left"><%if activity.price_per_day != 0 %>
+      <%=activity.price_per_day %> €
+      <%else%>
+      <%="Free activity"%>
+      <%end%>
+      </p>
       <% end %>
-    <% end %>
-
-    <%# <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/znoL1m6MD_k/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/ZhQCZjr9fHo/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/9FMDYPCv8mQ/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/H3APOiYLyzk/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/w_N-XCjiM0o/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/yWF2LLan-_o/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#" class="">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/YrtFlrLo2DQ/1000x500); border-radius: 20px;"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/p-4xI3UPCCY/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/diAfdoI-X6A/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/eWqOgJ-lfiI/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/IZmPdbnb-3I/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/IZmPdbnb-3I/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/IZmPdbnb-3I/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/IZmPdbnb-3I/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/IZmPdbnb-3I/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/IZmPdbnb-3I/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/IZmPdbnb-3I/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-
-    <a href="#">
-      <div class="card-4" style="background-image: url(https://source.unsplash.com/IZmPdbnb-3I/1000x500); border-radius: 20px"></div>
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a> %>
-
-  </div>
-
-  <div class="container-3">
-    <div class="content-2">
-    <!-- Content goes here -->
-
+      </div>
+      <% end %>
     </div>
-    <button class="load-more">Load More</button>
   </div>
+</div>
+<%= render "shared/footer"%>
 
-<%= render "shared/footer" %>
+<%= javascript_tag do %>
+  filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+// Show filtered elements
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+// Hide elements that are not selected
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current control button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+<%end%>

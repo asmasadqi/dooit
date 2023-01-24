@@ -12,7 +12,8 @@ export default class extends Controller {
   // function in order to build the calendars 
   connect() { 
     flatpickr(this.startDateInputTarget, { 
-      mode: 'range', 
+      mode: 'range',
+      minDate: "today",
       "plugins": [new rangePlugin({ input: this.endDateInputTarget})] 
     }) 
   } 

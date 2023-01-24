@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_21_105839) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_23_163020) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_105839) do
     t.string "description"
     t.string "category"
     t.string "localization"
-    t.float "price_per_day"
+    t.integer "price_per_day"
     t.integer "max_persons"
     t.float "average_rating"
     t.bigint "user_id", null: false
