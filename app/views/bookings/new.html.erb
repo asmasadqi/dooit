@@ -1,4 +1,3 @@
-<%= render "shared/navbar" %>
 <div class="container booking">
   <div class="booking-header">
     <%= link_to activity_path(@activity) do %>
@@ -10,25 +9,25 @@
     <div class="col">
       <div class="book-form">
         <h2><%= @activity.title %></h2>
-        <div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @activity.price_per_day %>"> 
+        <div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @activity.price_per_day %>">
           <%= simple_form_for [@activity, @booking], html: { data: { controller: 'flatpickr' } } do |f| %>
             <%= f.error_notification %>
             <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
             <!-- Target both inputs (dynamic_booking_price_target: 'startDateInput') -->
             <div class="form-inputs">
-              <%= f.input :time_start, label:'Start Date', as: :string, 
-                input_html: { 
-                  data: { 
-                    flatpickr_target: 'startDateInput', 
-                    dynamic_booking_price_target: 'startDateInput', 
-                    action: 'change->dynamic-booking-price#updatePrice' 
+              <%= f.input :time_start, label:'Start Date', as: :string,
+                input_html: {
+                  data: {
+                    flatpickr_target: 'startDateInput',
+                    dynamic_booking_price_target: 'startDateInput',
+                    action: 'change->dynamic-booking-price#updatePrice'
                   } } %>
-              <%= f.input :time_end, label:'End Date', as: :string, 
-                input_html: { 
-                  data: { 
-                    flatpickr_target: 'endDateInput', 
-                    dynamic_booking_price_target: 'endDateInput', 
-                    action: 'change->dynamic-booking-price#updatePrice' 
+              <%= f.input :time_end, label:'End Date', as: :string,
+                input_html: {
+                  data: {
+                    flatpickr_target: 'endDateInput',
+                    dynamic_booking_price_target: 'endDateInput',
+                    action: 'change->dynamic-booking-price#updatePrice'
                   } } %>
             </div>
             <div class="form-actions">
@@ -43,7 +42,7 @@
               <%= f.submit "Book Activity", class: "btn btn-primary" %>
             </div>
           <% end %>
-          <!-- target the HTML tag that will display the dynamic price --> 
+          <!-- target the HTML tag that will display the dynamic price -->
         </div>
       </div>
     </div>
@@ -59,6 +58,3 @@
     </div>
   </div>
 </div>
-<%= render "shared/footer" %>
-
-
