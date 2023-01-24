@@ -1,35 +1,30 @@
-<html>
-  <head>
-    <title>Navbar</title>
-    <link rel="shortcut icon" href="/favicon1.ico" />
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white navglobal">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-              <%=link_to activities_path do%>
-                <%= image_tag "dooit_logo.png"%>
-              <%end%>
-                <a class="nav-link active" aria-current="page" href="#"></a>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link host" href="#">Host activities</a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-8">
-              <div class="d-flex form-inputs">
-                <input class="form-control" type="text" placeholder="What do you want to do?">
-                  <i class="bx bx-search"></i>
-              </div>
-            </div>
-              <button class="btn"><i class="fa fa-user"></i> Login</button>
-        </div>
-    </nav>
-  </body>
-</html>
+<nav class="navbar navbar-expand-lg navbar-light bg-white navglobal">
+  <div class="container-fluid">
+    <%= link_to activities_path, class: "navbar-brand" do %>
+      <%= image_tag "dooit_logo.png"%>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link host" href="#">Host activities</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+        <%= form_with url: activities_path, method: :get, class:"dooit-search-bar" do %>
+          <%= text_field_tag :query,
+                      params[:query],
+                      class:"form-control search-input",
+                      placeholder:"What do you want to do?"  %>
+         
+          <%= button_tag class: "search-btn", type: "submit" do %>
+            <i class="fas fa-search search-icon"></i>
+          <% end %>
+        <% end %>
+    </div>
+    <button class="btn"><i class="fa fa-user"></i> Login</button>
+  </div>
+</nav>

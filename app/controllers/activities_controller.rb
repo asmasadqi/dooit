@@ -8,7 +8,11 @@ class ActivitiesController < ApplicationController
   # Seules la category sans cette class apparaîtra dans le champ sélectionné
 
   def index
-    @activities = Activity.all
+    if params[:query].present?
+      @activities = Activity.search_by_title_description_category(params[:query])
+    else
+      @activities = Activity.all
+    end    
   end
 
   def show
