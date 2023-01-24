@@ -14,12 +14,15 @@
       </ul>
     </div>
     <div class="col-md-8">
-        <%= form_with url: activities_path, method: :get, class:"input-group dooit-search-bar" do %>
+        <%= form_with url: activities_path, method: :get, class:"dooit-search-bar" do %>
           <%= text_field_tag :query,
                       params[:query],
                       class:"form-control search-input",
                       placeholder:"What do you want to do?"  %>
-          <%= submit_tag "Search", class:"btn btn-outline-secondary" %>
+         
+          <%= button_tag class: "search-btn", type: "submit" do %>
+            <i class="fas fa-search search-icon"></i>
+          <% end %>
         <% end %>
     </div>
     <button class="btn"><i class="fa fa-user"></i> Login</button>
