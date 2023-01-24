@@ -5,6 +5,6 @@ class Activity < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :category, presence: true, inclusion: { in: ["Art & Culture", "Entertainment", "Food & Drink", "Sports", "Tours", "Sightseeing", "Nature & Outdoors"] }
+  validates :category, presence: true, inclusion: { in: ["Culture", "Entertainment", "Food", "Sports", "Tours", "Sightseeing", "Outdoors"] }
   validates :localization, presence: true
 end
