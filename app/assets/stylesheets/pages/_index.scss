@@ -91,7 +91,7 @@ a:hover {
 }
 
 // PLACEMENT DU BOUTON
-.buttoni {
+.place-button {
   text-align: right;
   position: absolute;
   margin-top: 1rem;
@@ -150,19 +150,20 @@ a:hover {
   display: block;
 }
 
-.btn {
+.bttn {
   border: none;
   outline: none;
   padding: 12px 16px;
   background-color: #f1f1f1;
   cursor: pointer;
+  border-radius: 6Px;
 }
 
-.btn:hover {
+.bttn:hover {
   background-color: #ddd;
 }
 
-.btn.active {
+.bttn.active {
   background-color: #ff5a5e;
   color: white;
 }
