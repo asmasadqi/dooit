@@ -2,6 +2,7 @@ class Activity < ApplicationRecord
   belongs_to :user
   has_many :bookings
   has_many :reviews, through: :bookings
+  has_one_attached :image
 
   validates :title, presence: true
   validates :description, presence: true
@@ -9,7 +10,7 @@ class Activity < ApplicationRecord
   validates :localization, presence: true
 
   include PgSearch::Model
-  
+
   pg_search_scope :search_by_title_description_category,
     against: [ :title, :description, :category ],
     using: {
