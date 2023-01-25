@@ -12,11 +12,14 @@ class ActivitiesController < ApplicationController
       @activities = Activity.search_by_title_description_category(params[:query])
     else
       @activities = Activity.all
-    end    
+    end
   end
 
   def show
     set_activity
+    # added additional code in order to show reviews star ratings and comments
+    @reviews = @activity.reviews
+    @average_rating = @reviews.average(:rating)
   end
 
   def new
