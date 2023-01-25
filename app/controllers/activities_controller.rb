@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index]
   # TODO
   # Créer une sorted_list (en hash) avec deux arguments : category et activity
   # Ceci va nous permettre de savoir qu'une activity appartient à telle category
@@ -12,7 +12,7 @@ class ActivitiesController < ApplicationController
       @activities = Activity.search_by_title_description_category(params[:query])
     else
       @activities = Activity.all
-    end    
+    end
   end
 
   def show
