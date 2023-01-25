@@ -1,2 +1,76 @@
-<h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
+<div class="container booking">
+  <div class="booking-header">
+    <h1>Confirm your booking</h1>
+  </div>
+  <div class="row booking-container">
+    <div class="col">
+      <div class="book-form">
+        <h2><%= @activity.title %></h2>
+        <div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @activity.price_per_day %>">
+          <%= simple_form_for [@booking], html: { data: { controller: 'flatpickr' } } do |f| %>
+            <%= f.error_notification %>
+            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+            <!-- Target both inputs (dynamic_booking_price_target: 'startDateInput') -->
+            <div class="form-inputs row">
+              <div class="col-6">
+                <%= f.input :time_start, label:'Start Date', as: :string,
+                  input_html: {
+                    data: {
+                      flatpickr_target: 'startDateInput',
+                      dynamic_booking_price_target: 'startDateInput',
+                      action: 'change->dynamic-booking-price#updatePrice'
+                    } } %>
+              </div>
+              <div class="col-6">
+                <%= f.input :time_end, label:'End Date', as: :string,
+                  input_html: {
+                    data: {
+                      flatpickr_target: 'endDateInput',
+                      dynamic_booking_price_target: 'endDateInput',
+                      action: 'change->dynamic-booking-price#updatePrice'
+                    } } %>
+              </div>
+            </div>
+            <div class="form-actions">
+              <% if @activity.price_per_day != nil %>
+                <p class="booking-total-price"><span data-dynamic-booking-price-target="priceHolder"><%= @booking.total_price %></span> €</p>
+              <% else %>
+                <p>FREE</p>
+              <% end %>
+            </div>
+            <div class="form-actions">
+              <%= f.submit "Book Now!", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+          <!-- target the HTML tag that will display the dynamic price -->
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="book-activity-recap">
+        <% host = User.find(@activity.user_id) %>
+        <h3><%= @activity.title %> <span>with <%= host.first_name %></span></h3>
+        <div class="row">
+          <div class="col-7">
+            <span class="dooit-chip outline">
+              <span class="icon"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
+              <span class="label"><%= @activity.category %></span>
+            </span>
+            <p><%= @activity.description %></p>
+            <span class="dooit-chip">
+              <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+              <span class="label"><%= @activity.localization %></span>
+            </span>
+            <span class="badge rounded-pill text-bg-secondary">Only <%= @activity.price_per_day %> € per day!</span>
+          </div>
+          <div class="col-5 d-flex justify-content-end">
+            <%= image_tag @activity.image, {:class => "activity-thumbnail"} %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

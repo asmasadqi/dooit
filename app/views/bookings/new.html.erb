@@ -61,7 +61,7 @@
               <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
               <span class="label"><%= @activity.localization %></span>
             </span>
-            <span class="badge rounded-pill text-bg-secondary">Only €<%= @activity.price_per_day %> per day!</span>
+            <span class="badge rounded-pill text-bg-secondary">Only <%= @activity.price_per_day %> € per day!</span>
           </div>
           <div class="col-5 d-flex justify-content-end">
             <%= image_tag @activity.image, {:class => "activity-thumbnail"} %>
