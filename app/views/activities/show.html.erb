@@ -11,13 +11,14 @@
         <h3>Description: <%= @activity.description %></h3>
         <p>Category: <%= @activity.category %> <i class="fas fa-utensils "></i></p>
         <p>It takes place in: <%= @activity.localization %></p>
+      </div>
       <div>
         <%= link_to new_activity_booking_path(@activity) do%>
-        <button type="button" padding: 1em;>Book me!</button>
+          <button type="button" padding: 1em;>Book me!</button>
         <%end%>
       </div>
     </div>
-    </div>
+
     <div class="reviews col-4 p-2">
       <h3>Reviews</h3>
       <p>Average : <%= @average_rating.round(1) %>/5</p>
@@ -29,10 +30,8 @@
           <p>"<%= review.comment %>" - </p>
           <%# <%= user.username want to add username but I cannot do it%>
         </p>
-  <% end %>
-</div>
-      </div>
-  </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
