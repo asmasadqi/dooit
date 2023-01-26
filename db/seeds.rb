@@ -32,8 +32,7 @@ activity = Activity.create(
   category: "Outdoors",
   localization: "Cassis",
   price_per_day: 75,
-  # image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
-  image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/fishing.jpg')), filename: 'fishing.jpg')
+  image: "https://source.unsplash.com/random/?fishing"
 )
 activity = Activity.create(
   user_id: users.sample.id,
@@ -42,8 +41,8 @@ activity = Activity.create(
   category: "Food",
   localization: "Paris",
   price_per_day: 50,
-  # image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
-  image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/cooking.jpg')), filename: 'cooking.jpg')
+  image: "https://source.unsplash.com/random/?cooking"
+
 )
 activity = Activity.create(
   user_id: users.sample.id,
@@ -52,9 +51,10 @@ activity = Activity.create(
   category: "Sports",
   localization: "Fuerteventura",
   price_per_day: 30,
-  # image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
-  image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/surf.jpg')), filename: 'surf.jpg')
+  image: "https://source.unsplash.com/random/?surf"
+
 )
+
 activity = Activity.create(
   user_id: users.sample.id,
   title: "Sightseeing in Rome",
@@ -62,8 +62,8 @@ activity = Activity.create(
   category: "Sightseeing",
   localization: "Rome",
   price_per_day: 50,
-  # image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
-  image: activities.image.attach(io: File.open(File.join(Rails.root,'app/assets/images/rome.jpeg')), filename: 'rome.jpg')
+  image: "https://source.unsplash.com/random/?rome"
+
 )
 activity = Activity.create(
   user_id: users.sample.id,
@@ -72,9 +72,10 @@ activity = Activity.create(
   category: "Sports",
   localization: "Chamonix",
   price_per_day: 60,
-  # image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
-  image: activities.image.attach(io:  File.open(File.join(Rails.root, 'app/assets/images/snowboard.jpg')), filename: 'snowboard.jpg')
+  image: "https://source.unsplash.com/random/?snowborad"
+
 )
+
 activity = Activity.create(
   user_id: users.sample.id,
   title: "Wine Tasting",
@@ -82,8 +83,8 @@ activity = Activity.create(
   category: "Food",
   localization: "Lyon",
   price_per_day: 50,
-  # image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
-  image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/wine.jpg')), filename: 'wine.jpg')
+  image: "https://source.unsplash.com/random/?wine"
+
 )
 activity = Activity.create(
   user_id: users.sample.id,
@@ -92,8 +93,8 @@ activity = Activity.create(
   category: "Sports",
   localization: "Paris",
   price_per_day: 50,
-  # image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
-  image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/bouldering.jpg')), filename: 'bouldering.jpg')
+  image: "https://source.unsplash.com/random/?bouldering"
+
 )
 activity = Activity.create(
   user_id: users.sample.id,
@@ -102,8 +103,8 @@ activity = Activity.create(
   category: "Entertainment",
   localization: "London",
   price_per_day: 45,
-  # image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
-  image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/escape_game.jpg')), filename: 'escape_game.jpg')
+  image: "https://source.unsplash.com/random/?escapegame"
+
 )
 activity = Activity.create(
   user_id: users.sample.id,
@@ -112,8 +113,8 @@ activity = Activity.create(
   category: "Tours",
   localization: "Namibia",
   price_per_day: 150,
-  # image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
-  image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/buggy.jpg')), filename: 'buggy.jpg')
+  image: "https://source.unsplash.com/random/?buggy"
+
 )
 activity = Activity.create(
   user_id: users.sample.id,
@@ -122,8 +123,8 @@ activity = Activity.create(
   category: "Culture",
   localization: "Berlin",
   price_per_day: 80,
-  # image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
-  image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/pottery.jpg')), filename: 'pottery.jpg')
+  image: "https://source.unsplash.com/random/?fishing"
+
 )
 activity = Activity.create(
   user_id: users.sample.id,
@@ -132,8 +133,7 @@ activity = Activity.create(
   category: "Sightseeing",
   localization: "Rio de Janeiro",
   price_per_day: 100,
-  # image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
-  image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/rio.jpg')), filename: 'rio.jpg')
+  image: "https://source.unsplash.com/random/?rio-de-janeiro"
 )
 activity = Activity.create(
   user_id: users.sample.id,
@@ -142,8 +142,7 @@ activity = Activity.create(
   category: "Tours",
   localization: "Marrakech",
   price_per_day: 130,
-  # image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
-  image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/desert.jpg')), filename: 'desert.jpg')
+  image: "https://source.unsplash.com/random/?sahara-camel"
 )
 activities << activity
 puts "Created activity in DB with id #{activity.id}"
