@@ -11,7 +11,6 @@ puts 'Creating 12 fake users...'
 
 users = []
 activities = []
-# categories = ["Art & Culture", "Entertainment", "Food & Drink", "Sports", "Tours", "Sightseeing", "Nature & Outdoors"]
 
 12.times do |i|
   user = User.create(
@@ -72,7 +71,7 @@ activity = Activity.create(
   category: "Sports",
   localization: "Chamonix",
   price_per_day: 60,
-  image: "https://source.unsplash.com/random/?snowborad"
+  image: "https://source.unsplash.com/random/?snowboard"
 
 )
 
@@ -103,7 +102,7 @@ activity = Activity.create(
   category: "Entertainment",
   localization: "London",
   price_per_day: 45,
-  image: "https://source.unsplash.com/random/?escapegame"
+  image: "https://source.unsplash.com/random/?escape-room"
 
 )
 activity = Activity.create(
@@ -123,7 +122,7 @@ activity = Activity.create(
   category: "Culture",
   localization: "Berlin",
   price_per_day: 80,
-  image: "https://source.unsplash.com/random/?fishing"
+  image: "https://source.unsplash.com/random/?pottery"
 
 )
 activity = Activity.create(
