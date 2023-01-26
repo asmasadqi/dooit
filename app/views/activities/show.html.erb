@@ -1,32 +1,33 @@
-<div class= "p-4 pb-2">
+<div class= "pl-8">
   <h2><%= @activity.title %></h2>
-</div>
-<div class="d-flex p-4 bd-highlight">
   <div class="row">
-    <div class="col-8 pl-4">
+    <div class="activity col-8 d-flex flex-column justify-content-around">
       <div class ="image">
         <img src="https://source.unsplash.com/9FMDYPCv8mQ/600x300" alt="image">
       </div>
       <div class= "pt-2">
         <h3><%= @activity.description %></h3>
-        <p><%= @activity.category %> <i class="fas fa-utensils "></i></p>
-        <p><%= @activity.localization %></p>
+        <p><i class="fas fa-utensils"><%= @activity.category %></p>
+        <p><i class="fa-solid fa-map-pin"><%= @activity.localization %></p>
       </div>
-      <div>
+      <div class="review col-4 p-2 d-flex flex-column justify-content-around">
         <%= link_to new_activity_booking_path(@activity) do%>
-          <button type="button" padding: 1em;>Book me!</button>
+          <button type="btn-primary">Book me!</button>
         <%end%>
       </div>
     </div>
 
     <div class="reviews col-4 p-2">
       <h3>Reviews</h3>
-      <%# <%=  @average_rating.round(1)%> %>
-      <%# <p>Average : <%= if review.rating.include?(1..5) ? @average_rating.round(1)"/5" : "No reviews yet"</p> %>
+      <% if @activity.average_rating != (1..5) %>
+        <%= "No reviews yet" %>
+      <% else %>
+        <%= @activity.average_rating.round(1) %>
+      <% end %>
       <% @reviews.each do |review| %>
         <p>
           <% Review::AUTHORIZED_RATINGS.each do |number| %>
-            <i class="fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
+            <i class="test fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
           <% end %>
           <p>"<%= review.comment %>" - </p>
           <%# <%= user.username want to add username but I cannot do it%>
@@ -35,30 +36,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-<%# <div class="title">
-  <div><h1><%= @activity.title %></h1></div>
-<%# </div>
-
-<div class="description">
-  </p></p>
-  <%= @activity.average_rating %>
-
-<%# <div class="d"
-  style="background-image: url(https://source.unsplash.com/9FMDYPCv8mQ/1000x500); border-radius: 20px"></div>
-</div>
-
-<div class><div><p>
-</div>
-
-      <span class="black">Title</span><br>
-      <span class="gray">Description</span><br>
-      <span class="black">Price</span>
-    </a>
-</div> %>

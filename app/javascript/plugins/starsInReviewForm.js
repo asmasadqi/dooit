@@ -1,4 +1,5 @@
 const toggleColorStars = (stars, rating) => {
+  console.log(starts, rating)
   stars.forEach((star) => {
     if (star.id <= rating) {
       star.className = "review-rating fas fa-star"
@@ -10,6 +11,7 @@ const toggleColorStars = (stars, rating) => {
 
 // je créé une fonction qui va récupérer la valeur du rating
 const updateRatingInputForm = (rating) => {
+  console.log(rating)
   const formInput = document.getElementById('review_rating')
   formInput.value = rating
 }
