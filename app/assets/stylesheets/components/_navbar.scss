@@ -1,6 +1,7 @@
 .navglobal {
   justify-content: space-between;
   background: white;
+  border-radius: 6px;
   position:fixed
   width 100%
 }
@@ -19,10 +20,10 @@
 }
 
 .host {
-  border-radius: 20px;
+  border-radius: 6px;
   &:hover {
-    background:rgb(245, 244, 244);
-    border-radius: 20px;
+    background:#F4F4F4;
+    border-radius: 6px;
   }
 }
 
