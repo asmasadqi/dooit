@@ -37,5 +37,24 @@
         </div>
           <h2 class="review-pricing">99€</h2>
       </div>
+    </div>
+
+    <div class="reviews col-4 p-2">
+      <h3>Reviews</h3>
+      <% if @activity.average_rating != (1..5) %>
+        <%= "No reviews yet" %>
+      <% else %>
+        <%= @activity.average_rating.round(1) %>
+      <% end %>
+      <% @reviews.each do |review| %>
+        <p>
+          <% Review::AUTHORIZED_RATINGS.each do |number| %>
+            <i class="test fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
+          <% end %>
+          <p>"<%= review.comment %>" - </p>
+          <%# <%= user.username want to add username but I cannot do it%>
+        </p>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -4,5 +4,5 @@ class Review < ApplicationRecord
   belongs_to :booking
 
   validates :rating, inclusion: { in: AUTHORIZED_RATINGS }
-  # validates :rating, presence: true
+  validates :rating, presence: true
 end

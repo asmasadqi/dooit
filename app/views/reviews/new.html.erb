@@ -4,11 +4,14 @@
     <div class="row">
       <div class="col-4">
         <%= simple_form_for [@booking, @review] do |f| %>
-          <%# <%= f.input :rating, placeholder: 'Rate your experience' %>
           <%= f.input :comment, placeholder: 'Leave a message to your host' %>
-          <%# <%= f.input :rating, as: :hidden  %>
           <%= f.input :rating, collection: Review::AUTHORIZED_RATINGS, include_blank: false %>
-          <%= f.button :submit, class: "btn btn-primary" %>
+          <div class="my-3">
+            <% Review::AUTHORIZED_RATINGS.each do |index| %>
+              <i id="<%= index %>" class="review-rating far fa-star"></i>
+            <% end %>
+          </div>
+          <%= f.submit "submit", class: "btn btn-primary" %>
         <% end %>
       </div>
       <div class="col-8">
