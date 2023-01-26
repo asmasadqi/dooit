@@ -7,13 +7,13 @@ Activity.destroy_all
 User.destroy_all
 puts "Database cleaned"
 
-puts 'Creating 10 fake users...'
+puts 'Creating 12 fake users...'
 
 users = []
 activities = []
 # categories = ["Art & Culture", "Entertainment", "Food & Drink", "Sports", "Tours", "Sightseeing", "Nature & Outdoors"]
 
-10.times do |i|
+12.times do |i|
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
