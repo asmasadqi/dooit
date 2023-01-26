@@ -1,64 +1,76 @@
-<%= render "shared/navbar" %>
 <div class="container booking">
   <div class="booking-header">
-    <%= link_to activity_path(@activity) do %>
-      <i class="fa fa-arrow-left" aria-hidden="true"></i>
-    <% end %>
     <h1>Confirm your booking</h1>
   </div>
   <div class="row booking-container">
     <div class="col">
       <div class="book-form">
         <h2><%= @activity.title %></h2>
-        <div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @activity.price_per_day %>"> 
+        <div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @activity.price_per_day %>">
           <%= simple_form_for [@activity, @booking], html: { data: { controller: 'flatpickr' } } do |f| %>
             <%= f.error_notification %>
             <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
             <!-- Target both inputs (dynamic_booking_price_target: 'startDateInput') -->
-            <div class="form-inputs">
-              <%= f.input :time_start, label:'Start Date', as: :string, 
-                input_html: { 
-                  data: { 
-                    flatpickr_target: 'startDateInput', 
-                    dynamic_booking_price_target: 'startDateInput', 
-                    action: 'change->dynamic-booking-price#updatePrice' 
-                  } } %>
-              <%= f.input :time_end, label:'End Date', as: :string, 
-                input_html: { 
-                  data: { 
-                    flatpickr_target: 'endDateInput', 
-                    dynamic_booking_price_target: 'endDateInput', 
-                    action: 'change->dynamic-booking-price#updatePrice' 
-                  } } %>
+            <div class="form-inputs row">
+              <div class="col-6">
+                <%= f.input :time_start, label:'Start Date', as: :string,
+                  input_html: {
+                    data: {
+                      flatpickr_target: 'startDateInput',
+                      dynamic_booking_price_target: 'startDateInput',
+                      action: 'change->dynamic-booking-price#updatePrice'
+                    } } %>
+              </div>
+              <div class="col-6">
+                <%= f.input :time_end, label:'End Date', as: :string,
+                  input_html: {
+                    data: {
+                      flatpickr_target: 'endDateInput',
+                      dynamic_booking_price_target: 'endDateInput',
+                      action: 'change->dynamic-booking-price#updatePrice'
+                    } } %>
+              </div>
             </div>
             <div class="form-actions">
               <% if @activity.price_per_day != nil %>
-                <p>Total price:</p>
-                <p><span data-dynamic-booking-price-target="priceHolder"><%= @activity.price_per_day %></span> €</p>
+                <p class="booking-total-price"><span data-dynamic-booking-price-target="priceHolder"><%= @activity.price_per_day %></span> €</p>
               <% else %>
                 <p>FREE</p>
               <% end %>
             </div>
             <div class="form-actions">
-              <%= f.submit "Book Activity", class: "btn btn-primary" %>
+              <%= f.submit "Book Now!", class: "btn btn-primary" %>
             </div>
           <% end %>
-          <!-- target the HTML tag that will display the dynamic price --> 
+          <!-- target the HTML tag that will display the dynamic price -->
         </div>
       </div>
     </div>
     <div class="col">
       <div class="book-activity-recap">
-        <h3>Your activity: <%= @activity.title %></h3>
-        <p><%= @activity.description %></p>
-        <p><%= @activity.category %></p>
-        <p><%= @activity.localization %></p>
-        <p><%= @activity.price_per_day %></p>
-        <p><%= @activity.average_rating %></p>
+        <% host = User.find(@activity.user_id) %>
+        <h3><%= @activity.title %> <span>with <%= host.first_name %></span></h3>
+        <div class="row">
+          <div class="col-7">
+            <span class="dooit-chip outline">
+              <span class="icon"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
+              <span class="label"><%= @activity.category %></span>
+            </span>
+            <p><%= @activity.description %></p>
+            <span class="dooit-chip">
+              <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+              <span class="label"><%= @activity.localization %></span>
+            </span>
+            <span class="badge rounded-pill text-bg-secondary">Only €<%= @activity.price_per_day %> per day!</span>
+          </div>
+          <div class="col-5 d-flex justify-content-end">
+            <%= image_tag @activity.image, {:class => "activity-thumbnail"} %>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </div>
-<%= render "shared/footer" %>
 
 

@@ -32,3 +32,8 @@ local:
 #   service: Mirror
 #   primary: local
 #   mirrors: [ amazon, google, microsoft ]
+
+# Use for photo uploader
+cloudinary:
+  service: Cloudinary
+  folder: <%= Rails.env %>
