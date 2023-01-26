@@ -1,19 +1,41 @@
-<div class= "pl-8">
-  <h2><%= @activity.title %></h2>
-  <div class="row">
-    <div class="activity col-8 d-flex flex-column justify-content-around">
-      <div class ="image">
-        <img src="https://source.unsplash.com/9FMDYPCv8mQ/600x300" alt="image">
+<!-- Show activity -->
+<div class="activity">
+  <div class="container-fluid">
+    <div class="mt-2 mb-1">
+<!-- Title -->
+    <h2><%= @activity.title %></h2>
+    <h3>Let's Doo it</h3>
+    </div>
+  </div>
+    <div class="row mt-2 mb-1">
+<!-- Column 1-->
+      <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto mb-2 mt-4">
+<!-- Picture-->
+        <div class ="image">
+          <img src="https://source.unsplash.com/9FMDYPCv8mQ/600x300" alt="image">
+        </div>
+        <div class= "picture">
+          <h3><%= @activity.description %></h3>
+          <p><i class="fas fa-utensils"></i>  <%= @activity.category %> </p>
+          <p><i class="fa-solid fa-map-pin"></i>  <%= @activity.localization %></p>
+        </div>
       </div>
-      <div class= "pt-2">
-        <h3><%= @activity.description %></h3>
-        <p><i class="fas fa-utensils"><%= @activity.category %></p>
-        <p><i class="fa-solid fa-map-pin"><%= @activity.localization %></p>
-      </div>
-      <div class="review col-4 p-2 d-flex flex-column justify-content-around">
+<!-- Column 2-->
+      <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto mb-4 mt-4">
+        <%# <div class="review col-6 p-2 d-flex flex-column justify-content-around"> %>
+<!-- Booking CTA-->
         <%= link_to new_activity_booking_path(@activity) do%>
-          <button type="btn-primary">Book me!</button>
+        <button class="btn-flat" >Book me!</button>
         <%end%>
+<!-- Reviews -->
+      <div class="card-review">
+        <div class="card-review-infos">
+          <h2>Great reviews? Let's doo it</h2>
+          <p><i>"It was an incredible experience, I do recommand"</i></p>
+          <p><i>"Very nice teacher and lovely people"</i></p>
+          <p><i>"Whaa best bday present ever"</i></p>
+        </div>
+          <h2 class="review-pricing">99€</h2>
       </div>
     </div>
 

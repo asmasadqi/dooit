@@ -1,30 +1,58 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white navglobal">
+    <!-- Nav -->
+<nav class="navbar navbar-expand-sm navbar-light bg-white navglobal">
+  <%# <div class="container text-center text-md-start mt-1"> %>
   <div class="container-fluid">
-    <%= link_to activities_path, class: "navbar-brand" do %>
-      <%= image_tag "dooit_logo.png"%>
-    <% end %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link host" href="/activities/new">Host activities</a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-8">
-        <%= form_with url: activities_path, method: :get, class:"dooit-search-bar" do %>
-          <%= text_field_tag :query,
-                      params[:query],
-                      class:"form-control search-input",
-                      placeholder:"What do you want to do?"  %>
-
-          <%= button_tag class: "search-btn", type: "submit" do %>
-            <i class="fas fa-search search-icon"></i>
-          <% end %>
+    <!-- Row -->
+    <div class="row mt-4 mb-2">
+      <!-- Column 1-->
+      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 mx-auto mt-1">
+        <!-- Logo Content -->
+        <%= link_to activities_path, class: "navbar-brand" do %>
+        <%= image_tag "dooit_logo.png"%>
         <% end %>
+      </div>
+      <!-- Column 2-->
+      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 mx-auto mb-2 mt-4">
+        <!-- Host activity button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link host" href="#">Host activities</a>
+          </div>
+      </div>
+      <!-- Column 2-->
+      <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mx-auto mb-2 mt-4">
+        <!-- Searchbar -->
+            <%= form_with url: activities_path, method: :get, class:"dooit-search-bar" do %>
+            <%= text_field_tag :query,
+            params[:query],
+            class:"form-control search-input",
+            placeholder:"What do you want to do?"  %>
+            <%= button_tag class: "search-btn", type: "submit" do %>
+            <i class="fas fa-search search-icon"></i>
+            <% end %>
+            <% end %>
+      </div>
+      <!-- Login button-->
+        <div class="col-sm-1 col-md-1 col-lg-1 col-xl-1 mx-auto mb-2 mt-4">
+          <button class="btn-flat my-2 my-sm-0"i class="fa fa-user"></i> Login</button>
+        </div>
     </div>
+<<<<<<< HEAD
+=======
     <button class="btn"><i class="fa fa-user"></i> Login</button>
+      <li class="nav-item dropdown">
+          <img class="avatar dropdown-toggle in-front" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="z-index: 4000;">
+              <%= link_to "Host activities", "/activities/new", class: "dropdown-item" %>
+              <%= link_to "My activities", "/users/:user_id/activities", class: "dropdown-item" %>
+              <%= link_to "My bookings", "/users/:user_id/bookings", class: "dropdown-item" %>
+              <%= link_to "Log out", "/users/sign_out", class: "dropdown-item", data: {turbo_method: :delete} %>
+          </div>
+      </li>
+>>>>>>> 6875297e8a4e5296dab6bcaa32f91dc66e71a4c8
   </div>
 </nav>
