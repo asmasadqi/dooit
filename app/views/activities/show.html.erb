@@ -8,9 +8,9 @@
         <img src="https://source.unsplash.com/9FMDYPCv8mQ/600x300" alt="image">
       </div>
       <div class= "pt-2">
-        <h3>Description: <%= @activity.description %></h3>
-        <p>Category: <%= @activity.category %> <i class="fas fa-utensils "></i></p>
-        <p>It takes place in: <%= @activity.localization %></p>
+        <h3><%= @activity.description %></h3>
+        <p><%= @activity.category %> <i class="fas fa-utensils "></i></p>
+        <p><%= @activity.localization %></p>
       </div>
       <div>
         <%= link_to new_activity_booking_path(@activity) do%>
@@ -21,7 +21,8 @@
 
     <div class="reviews col-4 p-2">
       <h3>Reviews</h3>
-      <p>Average : <%= @average_rating.round(1) %>/5</p>
+      <%# <%=  @average_rating.round(1)%> %>
+      <%# <p>Average : <%= if review.rating.include?(1..5) ? @average_rating.round(1)"/5" : "No reviews yet"</p> %>
       <% @reviews.each do |review| %>
         <p>
           <% Review::AUTHORIZED_RATINGS.each do |number| %>
@@ -34,6 +35,7 @@
     </div>
   </div>
 </div>
+
 
 
 
