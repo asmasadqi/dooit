@@ -1,9 +1,19 @@
-<h1>Reviews#new</h1>
-<h2>Describe your activity</h2>
-<p>Help other users find the right experience for their activity.</p>
-<p>How was your experience?</p>
-<%= simple_form_for [@booking, @review] do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :comment %>
-  <%= f.submit %>
-<% end %>
+<div class="review">
+  <h1 class="p-3">How was your experience?</h1>
+  <div class="d-flex p-3 bd-highlight">
+    <div class="row">
+      <div class="col-4">
+        <%= simple_form_for [@booking, @review] do |f| %>
+          <%# <%= f.input :rating, placeholder: 'Rate your experience' %>
+          <%= f.input :comment, placeholder: 'Leave a message to your host' %>
+          <%# <%= f.input :rating, as: :hidden  %>
+          <%= f.input :rating, collection: Review::AUTHORIZED_RATINGS, include_blank: false %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <div class="col-8">
+        <img src="https://images.unsplash.com/photo-1519233181562-35b0b8bb2b1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1774&q=80" class="d-block w-100" alt="2 people doing pottery">
+      </div>
+    </div>
+  </div>
+</div>
