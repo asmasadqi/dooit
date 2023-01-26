@@ -17,6 +17,9 @@ class ActivitiesController < ApplicationController
 
   def show
     set_activity
+    # added additional code in order to show reviews star ratings and comments
+    @reviews = @activity.reviews
+    @average_rating = @reviews.average(:rating)
   end
 
   def new
