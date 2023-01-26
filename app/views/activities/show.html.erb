@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!-- Show activity -->
 <div class="activity">
   <div class="container-fluid">
@@ -38,41 +37,5 @@
         </div>
           <h2 class="review-pricing">99€</h2>
       </div>
-=======
-<div class= "p-4 pb-2">
-  <h2><%= @activity.title %></h2>
-</div>
-<div class="d-flex p-4 bd-highlight">
-  <div class="row">
-    <div class="col-8 pl-4">
-      <div class ="image">
-        <img src="https://source.unsplash.com/9FMDYPCv8mQ/600x300" alt="image">
-      </div>
-      <div class= "pt-2">
-        <h3>Description: <%= @activity.description %></h3>
-        <p>Category: <%= @activity.category %> <i class="fas fa-utensils "></i></p>
-        <p>It takes place in: <%= @activity.localization %></p>
-      </div>
-      <div>
-        <%= link_to new_activity_booking_path(@activity) do%>
-          <button type="button" padding: 1em;>Book me!</button>
-        <%end%>
-      </div>
-    </div>
-
-    <div class="reviews col-4 p-2">
-      <h3>Reviews</h3>
-      <p>Average : <%= @average_rating.round(1) %>/5</p>
-      <% @reviews.each do |review| %>
-        <p>
-          <% Review::AUTHORIZED_RATINGS.each do |number| %>
-            <i class="fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
-          <% end %>
-          <p>"<%= review.comment %>" - </p>
-          <%# <%= user.username want to add username but I cannot do it%>
-        </p>
-      <% end %>
-    </div>
->>>>>>> 62c69701fe5e369081f3b67c91d72c45e0d7c9cd
   </div>
 </div>
