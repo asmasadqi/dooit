@@ -33,7 +33,7 @@ activity = Activity.create(
   localization: "Cassis",
   price_per_day: 75,
   image: Faker::LoremFlickr.image(size: "1000x500", search_terms: ['sports', 'fitness', 'art', 'food', 'entertainment', 'drink', 'sightseeing', 'nature'])
-  # image = activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/seed_activity/fishing.jpeg')), filename: 'fishing.jpeg')
+  # image: activities.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/seed_activity/fishing.jpeg')), filename: 'fishing.jpeg')
 )
 activity = Activity.create(
   user_id: users.sample.id,
