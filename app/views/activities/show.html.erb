@@ -4,7 +4,6 @@
     <div class="mt-2 mb-1">
 <!-- Title -->
     <h2><%= @activity.title %></h2>
-    <h3>Let's Doo it</h3>
     </div>
   </div>
     <div class="row mt-2 mb-1">
@@ -12,7 +11,7 @@
       <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto mb-2 mt-4">
 <!-- Picture-->
         <div class ="image">
-          <img src="https://source.unsplash.com/9FMDYPCv8mQ/600x300" alt="image">
+          <%= image_tag @activity.image, {:class => "activity-detail"} %>
         </div>
         <div class= "picture">
           <h3><%= @activity.description %></h3>
@@ -25,36 +24,30 @@
         <%# <div class="review col-6 p-2 d-flex flex-column justify-content-around"> %>
 <!-- Booking CTA-->
         <%= link_to new_activity_booking_path(@activity) do%>
-        <button class="btn-flat" >Book me!</button>
+        <button class="btn btn-primary" >Book now</button>
         <%end%>
 <!-- Reviews -->
       <div class="card-review">
-        <div class="card-review-infos">
-          <h2>Great reviews? Let's doo it</h2>
-          <p><i>"It was an incredible experience, I do recommand"</i></p>
-          <p><i>"Very nice teacher and lovely people"</i></p>
-          <p><i>"Whaa best bday present ever"</i></p>
-        </div>
-          <h2 class="review-pricing">99€</h2>
-      </div>
-    </div>
-
-    <div class="reviews col-4 p-2">
-      <h3>Reviews</h3>
-      <% if @activity.average_rating != (1..5) %>
-        <%= "No reviews yet" %>
-      <% else %>
-        <%= @activity.average_rating.round(1) %>
-      <% end %>
-      <% @reviews.each do |review| %>
-        <p>
-          <% Review::AUTHORIZED_RATINGS.each do |number| %>
-            <i class="test fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
+        <div class="reviews col-4 p-2">
+          <h3>Reviews</h3>
+          <% if @activity.average_rating != (1..5) %>
+            <%= "No reviews yet" %>
+          <% else %>
+            <%= @activity.average_rating.round(1) %>
           <% end %>
-          <p>"<%= review.comment %>" - </p>
-          <%# <%= user.username want to add username but I cannot do it%>
-        </p>
-      <% end %>
+          <% @reviews.each do |review| %>
+            <p>
+              <% Review::AUTHORIZED_RATINGS.each do |number| %>
+                <i class="test fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
+              <% end %>
+            </p>
+            <p>"<%= review.comment %>" - <% user = User.find(@activity.user_id) %> <%= user.first_name %> </p>
+          <% end %>
+        </div>
+      </div>
+      <div>
+          <h2 class="review-pricing"><%= @activity.price_per_day %>€</h2>
+      </div>
     </div>
   </div>
 </div>
