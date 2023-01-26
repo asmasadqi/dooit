@@ -57,5 +57,5 @@ private
   end
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :category, :localization, :price_per_day, :max_persons, :average_rating)
+    params.require(:activity).permit(:title, :description, :category, :localization, :price_per_day, :max_persons, :average_rating, :image)
   end
