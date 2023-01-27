@@ -1,7 +1,7 @@
 <div class="dooit-login bg-white">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+      <div class="col-md-7 col-lg-6 d-flex flex-column justify-content-center align-items-center">
         <%= link_to activities_path, class: "navbar-brand" do %>
           <%= image_tag "dooit_logo.png"%>
         <% end %>
@@ -32,8 +32,7 @@
               <%= f.button :submit, "Log in", class: "btn btn-primary w-100 mb-3" %>
               <!-- devise sign up link -->
               <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-                <p>Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name), class: "dooit-link" %></p>
-                
+                <p>Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name), class: "dooit-link" %></p>                
               <% end %>
             </div>
           <% end %>
@@ -41,7 +40,7 @@
           <!--<%= render "devise/shared/links" %>-->
         </div>
       </div>
-      <div class="d-none d-md-flex col-md-6 login-side-img"></div>
+      <div class="d-none d-md-flex col-md-5 col-lg-6 login-side-img"></div>
     </div>
   </div>
 </div>
