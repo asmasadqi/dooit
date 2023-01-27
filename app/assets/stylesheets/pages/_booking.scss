@@ -1,11 +1,4 @@
 .booking {
-  .booking-header {
-    padding-top: 32px;
-    padding-bottom: 40px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
   .booking-container {
     padding-bottom: 64px;
   }
@@ -59,4 +52,11 @@
     max-width: 100%;
     height: 100%;
   }
+}
+.dooit-header {
+  padding-top: 32px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
