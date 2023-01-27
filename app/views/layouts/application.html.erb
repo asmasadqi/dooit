@@ -10,11 +10,17 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <%= render "shared/navbar" %>
+  <body>    
+    <!-- display navbar on all pages except login, signup and password recovery pages-->
+    <%- if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords' %>
+      <%= render "shared/navbar" %>
+    <% end %>
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= render "shared/footer"%>
+    <!-- display footer on all pages except login, signup and password recovery pages-->
+    <%- if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords' %>
+      <%= render 'shared/footer' %>
+    <% end %>
   </body>
 </html>

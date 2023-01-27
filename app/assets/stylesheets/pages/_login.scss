@@ -1,0 +1,23 @@
+.dooit-login {
+  height: 100vh;
+  display: flex;
+  > .container-fluid .row {
+    height: 100vh;
+  }
+  .navbar-brand {
+    position: absolute;
+    top: 24px;
+  }
+  .login-side-img {
+    background-image: url(login_splash.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  .form-label, .form-control {
+    font-family: $body-font;
+  }
+  .login-form-container {
+    width: 100%;
+    max-width: 480px;
+  }
+}
