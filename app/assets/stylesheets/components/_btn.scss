@@ -1,12 +1,36 @@
-.btn {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 6px;
-  transition: background 0.3s ease;
+// customization of bootstrap button with bootstrap's mixins
+.btn-primary {
+  @include button-variant(
+    $pink, 
+    $pink,
+    $white,
+    $hover-color: $white );
 }
 
-.btn:hover {
-  color: white;
+.btn-outline-primary {
+  @include button-outline-variant(
+    $pink,
+    $color-hover: $white,
+    $active-background: $pink,
+    $active-border: $pink,
+    $active-color: color-contrast($pink) );
+}
+
+.btn-secondary {
+  @include button-variant(
+    $blue, 
+    $blue,
+    $white,
+    $hover-color: $white );
+}
+
+.btn-outline-secondary {
+  @include button-outline-variant(
+    $blue,
+    $color-hover: $white,
+    $active-background: $blue,
+    $active-border: $blue,
+    $active-color: color-contrast($blue) );
 }
 
 // Star-rating button CSS
