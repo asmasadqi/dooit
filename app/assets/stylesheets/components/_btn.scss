@@ -18,3 +18,10 @@
   cursor:    pointer;
   font-size: 2rem;
 }
+
+a.dooit-link {
+  color: $blue;
+  &:hover {
+    color: $pink;
+  }
+}
