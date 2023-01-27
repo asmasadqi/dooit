@@ -20,7 +20,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link host" href="#">Host activities</a>
+             <%= link_to "Host activities", "/activities/new", class: "nav-link host" %>
           </div>
       </div>
       <!-- Column 2-->
@@ -41,8 +41,6 @@
           <button class="btn-flat my-2 my-sm-0"i class="fa fa-user"></i> Login</button>
         </div>
     </div>
-<<<<<<< HEAD
-=======
     <button class="btn"><i class="fa fa-user"></i> Login</button>
       <li class="nav-item dropdown">
           <img class="avatar dropdown-toggle in-front" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
@@ -53,6 +51,5 @@
               <%= link_to "Log out", "/users/sign_out", class: "dropdown-item", data: {turbo_method: :delete} %>
           </div>
       </li>
->>>>>>> 6875297e8a4e5296dab6bcaa32f91dc66e71a4c8
   </div>
 </nav>
