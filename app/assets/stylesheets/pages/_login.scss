@@ -1,12 +1,15 @@
 .dooit-login {
   height: 100vh;
   display: flex;
-  > .container-fluid .row {
+  .container-fluid .row {
     height: 100vh;
   }
   .navbar-brand {
-    position: absolute;
-    top: 24px;
+    margin-top: 16px;
+    @media (min-width: 768px) {
+      position: absolute;
+      top: 0;
+    }
   }
   .login-side-img {
     background-image: url(login_splash.jpg);
@@ -19,5 +22,19 @@
   .login-form-container {
     width: 100%;
     max-width: 480px;
+  }
+  .registration {
+    .user_first_name, .user_last_name,
+    .user_password, .user_password_confirmation {
+      @media (min-width: 768px) {
+        flex: 0 0 auto;
+        width: 50%;
+      }
+    }
+    .user_first_name, .user_password {      
+      @media (min-width: 768px) {
+        padding-right: 0.5rem;
+      }
+    }
   }
 }

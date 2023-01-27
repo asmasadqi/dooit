@@ -1,32 +1,53 @@
-<h2>Sign up</h2>
+<div class="dooit-login bg-white">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-7 col-lg-6 d-flex flex-column justify-content-center align-items-center">
+        <%= link_to activities_path, class: "navbar-brand" do %>
+          <%= image_tag "dooit_logo.png"%>
+        <% end %>
+        <div class="login-form-container registration">
+          <div class="mb-4">
+            <h2>Register</h2>
+          </div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :first_name,
-                required: true %>
-    <%= f.input :last_name,
-                required: true %>
-    <%= f.input :username,
-                required: true %>
+            <div class="form-inputs mb-2">
+              <div class="d-block d-md-flex ">
+                <%= f.input :first_name,
+                            required: true %>
+                <%= f.input :last_name,
+                            required: true %>
+              </div>
+              <%= f.input :username,
+                          required: true %>
+              <%= f.input :email,
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "email" }%>
+              <div class="d-block d-md-flex">
+                <%= f.input :password,
+                            required: true,
+                            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                            input_html: { autocomplete: "new-password" } %>
+                <%= f.input :password_confirmation,
+                            required: true,
+                            input_html: { autocomplete: "new-password" } %>
+                            </div>
+              </div>
 
+            <div class="form-actions d-flex flex-column align-items-center">
+              <%= f.button :submit, "Sign up", class: "btn btn-primary w-100 mb-3" %>
+              <%- if controller_name != 'sessions' %>
+                <p>Already have an account? <%= link_to "Log in", new_session_path(resource_name), class: "dooit-link" %></p> 
+              <% end %>
+            </div>
+          <% end %>
+          <!--<%= render "devise/shared/links" %>-->
+        </div>
+      </div>
+      <div class="d-none d-md-flex col-md-5 col-lg-6 login-side-img"></div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
