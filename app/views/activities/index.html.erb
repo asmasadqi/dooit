@@ -1,41 +1,50 @@
 <div class="sticky-top bg-light">
     <div class="border-top">
-      <div id="category" class="d-flex justify-content-around pt-2 pb-2 shadow-bottom">
-        <div id="myBtnContainer">
-          <button class="bttn active" onclick="filterSelection('all')"> Show all</button>
-          <button class="bttn" onclick="filterSelection('Culture')"> Art & Culture</button>
-          <button class="bttn" onclick="filterSelection('Entertainment')"> Entertainment</button>
-          <button class="bttn" onclick="filterSelection('Food')"> Food & Drinks</button>
-          <button class="bttn" onclick="filterSelection('Sports')"> Sports</button>
-          <button class="bttn" onclick="filterSelection('Tours')">Tours</button>
-          <button class="bttn" onclick="filterSelection('Sightseeing')"> Sightseeing</button>
-          <button class="bttn" onclick="filterSelection('Outdoors')"> Nature & Outdoors</button>
+      <div id="category" class="pt-2 shadow-bottom">
+        <div id="myBtnContainer" class="d-flex justify-content-around">
+          <button class="bttn category-tab active" onclick="filterSelection('all')"><i class="fa fa-border-all"></i>All</button>
+          <button class="bttn category-tab" onclick="filterSelection('Culture')"><i class="fa fa-palette"></i> Art & Culture</button>
+          <button class="bttn category-tab" onclick="filterSelection('Entertainment')"><i class="fa fa-dice"></i> Entertainment</button>
+          <button class="bttn category-tab" onclick="filterSelection('Food')"><i class="fa fa-cutlery"></i> Food & Drinks</button>
+          <button class="bttn category-tab" onclick="filterSelection('Sports')"><i class="fa fa-football"></i> Sports</button>
+          <button class="bttn category-tab" onclick="filterSelection('Tours')"><i class="fa fa-ship"></i> Tours</button>
+          <button class="bttn category-tab" onclick="filterSelection('Sightseeing')"><i class="fa fa-eye"></i> Sightseeing</button>
+          <button class="bttn category-tab" onclick="filterSelection('Outdoors')"><i class="fa fa-tree"></i> Nature & Outdoors</button>
         </div>
       </div>
     </div>
   </div>
   <div class="card-1">
-  <% @activities.each do |activity| %>
-    <div class="filterDiv shadow <%=activity.category%>">
-      <%= link_to activity_path(activity) do %>
-        <div class="tour_image" style="background-image: url(<%=activity.set_image%>);"></div>
-        <%# <%= image_tag 'outdoors.jpg' %>
-        <h5 class="tour_name"><%=activity.title%></h5>
-        <p class="tour-content"><i class="fa-solid fa-map-pin"></i> <%=activity.localization%></p>
-        <p class="tour-content elips"><%=activity.description%></p><br>
+    <% @activities.each do |activity| %>
+      <div class="filterDiv shadow <%=activity.category%>">
         <%= link_to activity_path(activity) do %>
-          <p class="btn btn-primary place-button">See more</p>
-        <%end %>
-        <p class="tour_pricing black"><%if activity.price_per_day != 0 %>
-        From <strong>EUR <%=activity.price_per_day %></strong>
-        <%else%>
-        <%="Free activity"%>
-        <%end%>
-        </p>
+          <div class="tour_image" style="background-image: url(<%=activity.set_image%>);"></div>
+          <h5 class="tour_name"><%=activity.title%></h5>
+          <p class="tour-content"><i class="fa-solid fa-map-pin"></i> <%=activity.localization%></p>
+          <p class="tour-content elips"><%=activity.description%></p><br>
+          <%= link_to activity_path(activity) do %>
+            <p class="btn btn-primary place-button">See more</p>
+          <% end %>
+          <p class="tour_pricing black">
+          <% if activity.price_per_day != 0 %>
+            From <strong>EUR <%=activity.price_per_day %></strong>
+          <% else %>
+            <%="Free activity"%>
+          <% end %>
         <% end %>
-        </div>
-      <% end %>
-    </div>
+        <% if activity.user == current_user %>
+          <p>
+            <%= link_to activity_path(activity),
+                        data: {
+                          turbo_method: :delete,
+                          turbo_confirm: "Are you sure?"
+                        }, class: "delete-activity-btn" do %>
+            <i class="fa fa-xmark"></i>
+            <% end %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 
