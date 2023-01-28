@@ -15,26 +15,36 @@
     </div>
   </div>
   <div class="card-1">
-  <% @activities.each do |activity| %>
-    <div class="filterDiv shadow <%=activity.category%>">
-      <%= link_to activity_path(activity) do %>
-        <div class="tour_image" style="background-image: url(<%=activity.image%>);"></div>
-        <h5 class="tour_name"><%=activity.title%></h5>
-        <p class="tour-content"><i class="fa-solid fa-map-pin"></i> <%=activity.localization%></p>
-        <p class="tour-content elips"><%=activity.description%></p><br>
+    <% @activities.each do |activity| %>
+      <div class="filterDiv shadow <%=activity.category%>">
         <%= link_to activity_path(activity) do %>
-          <p class="btn btn-primary place-button">See more</p>
-        <%end %>
-        <p class="tour_pricing black"><%if activity.price_per_day != 0 %>
-        From <strong>EUR <%=activity.price_per_day %></strong>
-        <%else%>
-        <%="Free activity"%>
-        <%end%>
-        </p>
+          <div class="tour_image" style="background-image: url(<%=activity.set_image%>);"></div>
+          <h5 class="tour_name"><%=activity.title%></h5>
+          <p class="tour-content"><i class="fa-solid fa-map-pin"></i> <%=activity.localization%></p>
+          <p class="tour-content elips"><%=activity.description%></p><br>
+          <%= link_to activity_path(activity) do %>
+            <p class="btn btn-primary place-button">See more</p>
+          <% end %>
+          <p class="tour_pricing black">
+          <% if activity.price_per_day != 0 %>
+            From <strong>EUR <%=activity.price_per_day %></strong>
+          <% else %>
+            <%="Free activity"%>
+          <% end %>
         <% end %>
-        </div>
-      <% end %>
-    </div>
+        <% if activity.user == current_user %>
+          <p>
+            <%= link_to activity_path(activity),
+                        data: {
+                          turbo_method: :delete,
+                          turbo_confirm: "Are you sure?"
+                        }, class: "delete-activity-btn" do %>
+            <i class="fa fa-xmark"></i>
+            <% end %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 

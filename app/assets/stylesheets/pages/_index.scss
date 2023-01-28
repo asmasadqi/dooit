@@ -12,10 +12,30 @@
 
 // CREATION DE LA GRID POUR LES CARTES
 .card-1{
+  position: relative;
   margin: 30px 60px 30px 60px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 80px;
+}
+
+.delete-activity-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: $blue;
+  position: absolute;
+  top: -16px;
+  right: -16px;
+}
+
+.delete-activity-btn:hover{
+  color: white;
+  background-color: #052a40 ;
 }
 
 a {
