@@ -1,5 +1,5 @@
 <div class="container booking">
-  <div class="booking-header">
+  <div class="dooit-header">
     <h1>Confirm your booking</h1>
   </div>
   <div class="row booking-container">
@@ -52,13 +52,10 @@
         <h3><%= @activity.title %> <span>with <%= host.first_name %></span></h3>
         <div class="row">
           <div class="col-7">
-            <span class="dooit-chip outline">
-              <span class="icon"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
-              <span class="label"><%= @activity.category %></span>
-            </span>
+            <%= render "shared/chips", activity: @activity %>
             <p><%= @activity.description %></p>
             <span class="dooit-chip">
-              <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+              <span class="icon"><i class="fa-solid fa-map-pin" aria-hidden="true"></i></span>
               <span class="label"><%= @activity.localization %></span>
             </span>
             <span class="badge rounded-pill text-bg-secondary">Only <%= @activity.price_per_day %> € per day!</span>
