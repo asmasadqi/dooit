@@ -13,18 +13,18 @@
             <p>With <strong><%= host.first_name %> <%= host.last_name %></strong></p>
             <div class="d-flex">
               <div class="booking-start-time border-end border-secondary-subtle pe-3">
-                <p>Starts</p> 
+                <p>Starts</p>
                 <p><%= booking.time_start.strftime('%A, %b %d')%></p>
               </div>
               <div class="booking-end-time ps-3">
-                <p>Ends</p> 
+                <p>Ends</p>
                 <p><%= booking.time_end.strftime('%A, %b %d') %></p>
               </div>
             </div>
             <p class="booking-total-price smaller mt-3"><span></span><%= booking.total_price %> €</p>
           </div>
           <div class="d-none d-md-flex col-md-4 py-4 pe-4">
-            <%= image_tag booking.activity.image, {:class => "activity-thumbnail fit-parent-size"} %>
+            <%= image_tag booking.activity.set_image, {:class => "activity-thumbnail fit-parent-size"} %>
           </div>
         </div>
         <% if booking.time_end.to_date.past? %>
@@ -35,7 +35,7 @@
         <% end %>
       </div>
 
-      
+
     <% end %>
   <% end %>
 </div>
