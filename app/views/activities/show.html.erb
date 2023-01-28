@@ -1,17 +1,12 @@
 <!-- Show activity -->
-<div class="container activity">
-  <div class="container-fluid">
-    <div class="d-flex justify-content booking-header">
-      <h2><%= @activity.title %> with <%=User.find(@activity.user_id).first_name%></h2>
-      <span class="dooit-chipp outlinee">
-        <span class="icon"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
-        <span class="label"><%= @activity.category %></span>
-      </span>
-  </div>
+<div class="activity">
+  <div class="container">
     <div class="row mt-2 mb-1">
-<!-- Column 1-->
-      <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-<!-- Picture-->
+      <div class="col-6 border-end">
+        <div class="d-flex justify-content-between booking-header ">
+          <h2><%= @activity.title %> with <%=User.find(@activity.user_id).first_name%></h2>
+          <%= render "shared/chips", activity: @activity %>
+        </div>
         <div class ="image">
           <%= image_tag @activity.image, {:class => "activity-image"} %>
         </div>
@@ -20,10 +15,9 @@
           <h5 class="pt-3"><%= @activity.description %></h5>
         </div>
       </div>
-<!-- Column 2-->
-      <div class=" border-start sidel col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <div class="car-7">
-          <div class="container">
+      <div class="col-6 padding-for-heading">
+        <div class="sidel sticky-top">
+          <div class="car-7">
             <h2 class="border-bottom pb-2 text-center">Reviews</h2>
             <% if @activity.average_rating != (1..5) %>
               <%="No reviews actually."%>
@@ -55,8 +49,8 @@
                     </div>
                   </div>
                 </div>
-              <p class="elips">"<% user = User.find(@activity.user_id) %> <%= user.first_name %> - <%=review.comment %>"</p>
-            <% end %>
+                <p class="elips">"<% user = User.find(@activity.user_id) %> <%= user.first_name %> - <%=review.comment %>"</p>
+              <% end %>
             <%= link_to new_activity_booking_path(@activity) do%>
               <button class="btn btn-primary bottom-card" >Book now</button>
             <%end%>
