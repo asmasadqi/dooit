@@ -23,12 +23,12 @@ lena = User.create(
 
 activity_lena = Activity.create(
   user_id: lena.id,
-  title: "Kite Surf",
-  description: "Enjoy the wind of Tarifa with our local instructor everyday from 8am.",
-  category: "Sports",
-  localization: "Tarifa",
-  price_per_day: 90,
-  image: "https://source.unsplash.com/random/?kite-surf"
+  title: "Drink with Paul P",
+  description: "SHOT SHOT SHOT!",
+  category: "Entertainment",
+  localization: "Les Marquises",
+  price_per_day: 999999,
+  image: "https://res.cloudinary.com/dg5wojcq5/image/upload/v1674918595/IMG_0123_q12rnx.jpg"
 
 )
 
