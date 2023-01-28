@@ -29,6 +29,6 @@ class Activity < ApplicationRecord
   }.freeze
 
   def set_image
-    self.image || self.image = File.open(CATEGORY_IMAGES[category])
+    self.image || CATEGORY_IMAGES[category]
   end
 end
