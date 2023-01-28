@@ -18,7 +18,8 @@
   <% @activities.each do |activity| %>
     <div class="filterDiv shadow <%=activity.category%>">
       <%= link_to activity_path(activity) do %>
-        <div class="tour_image" style="background-image: url(<%=activity.image%>);"></div>
+        <div class="tour_image" style="background-image: url(<%=activity.set_image%>);"></div>
+        <%# <%= image_tag 'outdoors.jpg' %>
         <h5 class="tour_name"><%=activity.title%></h5>
         <p class="tour-content"><i class="fa-solid fa-map-pin"></i> <%=activity.localization%></p>
         <p class="tour-content elips"><%=activity.description%></p><br>
