@@ -19,13 +19,13 @@ class Activity < ApplicationRecord
     }
 
   CATEGORY_IMAGES = {
-    'Culture' => 'app/assets/images/artsandculture.jpg',
-    'Entertainment' => 'app/assets/images/entertainment.jpg',
-    'Food' => 'app/assets/images/foodanddrink.jpg',
-    'Sports' => 'app/assets/images/sports.jpg',
-    'Tours' => 'app/assets/images/tours_deywmm.jpg',
-    'Sightseeing' => 'app/assets/images/entertainment.jpg',
-    'Outdoors' => 'app/assets/images/outdoors.jpg',
+    'Culture' => 'https://res.cloudinary.com/dg5wojcq5/image/upload/v1674900566/sightseeing_wcrrm1.jpghttps://res.cloudinary.com/dg5wojcq5/image/upload/v1674900566/artsandculture_xyaipv.jpg',
+    'Entertainment' => 'https://res.cloudinary.com/dg5wojcq5/image/upload/v1674900566/entertainment_xwe0qj.jpg',
+    'Food' => 'https://res.cloudinary.com/dg5wojcq5/image/upload/v1674900755/food_and_drink_ewcutu.avif',
+    'Sports' => 'https://res.cloudinary.com/dg5wojcq5/image/upload/v1674900568/sports_oymyfd.jpg',
+    'Tours' => 'https://res.cloudinary.com/dg5wojcq5/image/upload/v1674900567/tours_deywmm_maxhaj.jpg',
+    'Sightseeing' => 'https://res.cloudinary.com/dg5wojcq5/image/upload/v1674900566/sightseeing_wcrrm1.jpg',
+    'Outdoors' => 'https://res.cloudinary.com/dg5wojcq5/image/upload/v1674900568/outdoors_detmzy.jpg',
   }.freeze
 
   def set_image
