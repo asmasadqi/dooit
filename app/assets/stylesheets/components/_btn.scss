@@ -1,7 +1,7 @@
 // customization of bootstrap button with bootstrap's mixins
 .btn-primary {
   @include button-variant(
-    $pink, 
+    $pink,
     $pink,
     $white,
     $hover-color: $white );
@@ -18,7 +18,7 @@
 
 .btn-secondary {
   @include button-variant(
-    $blue, 
+    $blue,
     $blue,
     $white,
     $hover-color: $white );
