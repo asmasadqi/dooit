@@ -1,6 +1,37 @@
-<% if category == "" %>
-<span class="dooit-chip outline">
-  <span class="icon"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
-  <span class="label"><%= @activity.category %></span>
-</span>
+<!--["Culture", "Entertainment", "Food", "Sports", "Tours", "Sightseeing", "Outdoors"]-->
+<% if activity.category == "Culture" %>
+  <span class="dooit-chip outline">
+    <span class="icon"><i class="fa fa-palette" aria-hidden="true"></i></span>
+    <span class="label"><%= activity.category %></span>
+  </span>
+<% elsif activity.category == "Entertainment" %>
+  <span class="dooit-chip outline">
+    <span class="icon"><i class="fa fa-dice" aria-hidden="true"></i></span>
+    <span class="label"><%= activity.category %></span>
+  </span>
+<% elsif activity.category == "Food" %>
+  <span class="dooit-chip outline">
+    <span class="icon"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
+    <span class="label"><%= activity.category %></span>
+  </span>
+  <% elsif activity.category == "Sports" %>
+  <span class="dooit-chip outline">
+    <span class="icon"><i class="fa fa-football" aria-hidden="true"></i></span>
+    <span class="label"><%= activity.category %></span>
+  </span>
+<% elsif activity.category == "Tours" %>
+  <span class="dooit-chip outline">
+    <span class="icon"><i class="fa fa-ship" aria-hidden="true"></i></span>
+    <span class="label"><%= activity.category %></span>
+  </span>
+<% elsif activity.category == "Sightseeing" %>
+  <span class="dooit-chip outline">
+    <span class="icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
+    <span class="label"><%= activity.category %></span>
+  </span>
+<% elsif activity.category == "Outdoors" %>
+  <span class="dooit-chip outline">
+    <span class="icon"><i class="fa fa-tree" aria-hidden="true"></i></span>
+    <span class="label"><%= activity.category %></span>
+  </span>
 <% end %>
