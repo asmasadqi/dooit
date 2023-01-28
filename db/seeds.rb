@@ -23,12 +23,12 @@ lena = User.create(
 
 activity_lena = Activity.create(
   user_id: lena.id,
-  title: "Drink with Paul P",
-  description: "SHOT SHOT SHOT!",
-  category: "Entertainment",
-  localization: "Les Marquises",
-  price_per_day: 999999,
-  image: "https://res.cloudinary.com/dg5wojcq5/image/upload/v1674918595/IMG_0123_q12rnx.jpg"
+  title: "Fishing",
+  description: "You'll be in our boat to go fishing in beautiful locations we have spotted. Catches of the day will be cooked for lunch by our wonderful chef.",
+  category: "Outdoors",
+  localization: "Cassis",
+  price_per_day: 75,
+  image: "https://source.unsplash.com/random/?fishing"
 
 )
 
@@ -46,12 +46,12 @@ end
 
 activity = Activity.create(
   user_id: users.sample.id,
-  title: "Fishing",
-  description: "You'll be in our boat to go fishing in beautiful locations we have spotted. Catches of the day will be cooked for lunch by our wonderful chef.",
-  category: "Outdoors",
-  localization: "Cassis",
-  price_per_day: 75,
-  image: "https://source.unsplash.com/random/?fishing"
+  title: "Drink with Paul P",
+  description: "SHOT SHOT SHOT!",
+  category: "Entertainment",
+  localization: "Les Marquises",
+  price_per_day: 999999,
+  image: "https://res.cloudinary.com/dg5wojcq5/image/upload/v1674918595/IMG_0123_q12rnx.jpg"
 )
 activity = Activity.create(
   user_id: users.sample.id,
