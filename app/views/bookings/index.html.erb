@@ -6,32 +6,36 @@
   <% @bookings.each do |booking| %>
     <% host = User.find(booking.activity.user_id) %>
     <%= link_to edit_booking_path(booking) do %>
-      <div class="booking-item row">
-        <div class="col-md-8 py-4 ps-4">
-          <h2><%= booking.activity.title %></h2>
-          <p>With <strong><%= host.first_name %> <%= host.last_name %></strong></p>
-          <div class="d-flex">
-            <div class="booking-start-time border-end border-secondary-subtle pe-3">
-              <p>Starts</p> 
-              <p><%= booking.time_start.strftime('%A, %b %d')%></p>
+      <div class="booking-item">
+        <div class="row">
+          <div class="col-md-8 py-4 ps-4">
+            <h2><%= booking.activity.title %></h2>
+            <p>With <strong><%= host.first_name %> <%= host.last_name %></strong></p>
+            <div class="d-flex">
+              <div class="booking-start-time border-end border-secondary-subtle pe-3">
+                <p>Starts</p> 
+                <p><%= booking.time_start.strftime('%A, %b %d')%></p>
+              </div>
+              <div class="booking-end-time ps-3">
+                <p>Ends</p> 
+                <p><%= booking.time_end.strftime('%A, %b %d') %></p>
+              </div>
             </div>
-            <div class="booking-end-time ps-3">
-              <p>Ends</p> 
-              <p><%= booking.time_end.strftime('%A, %b %d') %></p>
-            </div>
+            <p class="booking-total-price smaller mt-3"><span></span><%= booking.total_price %> €</p>
           </div>
-          <p class="booking-total-price smaller mt-3"><span></span><%= booking.total_price %> €</p>
-        </div>
-        <div class="d-none d-md-flex col-md-4 py-4 pe-4">
-          <%= image_tag booking.activity.image, {:class => "activity-thumbnail fit-parent-size"} %>
+          <div class="d-none d-md-flex col-md-4 py-4 pe-4">
+            <%= image_tag booking.activity.image, {:class => "activity-thumbnail fit-parent-size"} %>
+          </div>
         </div>
         <% if booking.time_end.to_date.past? %>
           <div class="booking-review d-flex align-items-center justify-content-between border-top border-secondary-subtle px-4 pt-3 pb-4">
             <p class="m-0">Enjoyed your activity? leave a review for <%= host.first_name %></p>
-            <%= link_to "Leave a review", booking_reviews_path(booking), class: "btn btn-outline-primary" %>
+            <%= link_to "Leave a review", new_booking_review_path(booking), class: "btn btn-outline-primary" %>
           </div>
         <% end %>
       </div>
+
+      
     <% end %>
   <% end %>
 </div>

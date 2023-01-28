@@ -6,7 +6,7 @@
         <%= simple_form_for [@booking, @review] do |f| %>
           <%= f.input :comment, placeholder: 'Leave a message to your host' %>
           <%= f.input :rating, collection: Review::AUTHORIZED_RATINGS, include_blank: false %>
-          <div class="my-3">
+          <div class="d-none my-3">
             <% Review::AUTHORIZED_RATINGS.each do |index| %>
               <i id="<%= index %>" class="review-rating far fa-star"></i>
             <% end %>
