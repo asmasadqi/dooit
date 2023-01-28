@@ -11,6 +11,26 @@ puts 'Creating 12 fake users...'
 
 users = []
 activities = []
+bookings = []
+
+kaori = User.create(
+  first_name: "Kaori",
+  last_name: "Martin",
+  username: "kaorim",
+  email: "kaori.martin21@gmail.com",
+  password: "123456"
+)
+
+activity_kaori = Activity.create(
+  user_id: kaori.id,
+  title: "Escape Game",
+  description: "You have 2 hours to find the answer to escape from a locked room full of hidden messages...",
+  category: "Entertainment",
+  localization: "London",
+  price_per_day: 45,
+  image: "https://source.unsplash.com/random/?escape-room"
+
+)
 
 12.times do |i|
   user = User.create(
@@ -152,6 +172,18 @@ puts "Created activity in DB with id #{activity.id}"
     activity_id: activities.sample.id
   )
   puts "Created booking in DB with id #{booking.id}"
+  bookings << booking
 end
+
+# Creates booking for demo user kaori
+booking = Booking.create(
+  time_start: Date.today - 2.days,
+  time_end: Date.yesterday,
+  user_id: kaori.id,
+  total_price: activity.price_per_day,
+  activity_id: activity_kaori.id
+)
+
+puts "Created past booking in DB with id #{booking.id}"
 
 puts "Finished!"
