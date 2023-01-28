@@ -16,7 +16,7 @@ bookings = []
 lena = User.create(
   first_name: "Lena",
   last_name: "Ansari",
-  username: "lenaa",
+  username: "lena",
   email: "lenaansari@gmail.com",
   password: "123456"
 )
