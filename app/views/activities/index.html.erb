@@ -19,21 +19,26 @@
     <div class="filterDiv shadow <%=activity.category%>">
       <%= link_to activity_path(activity) do %>
         <div class="tour_image" style="background-image: url(<%=activity.set_image%>);"></div>
-        <%# <%= image_tag 'outdoors.jpg' %>
-        <h5 class="tour_name"><%=activity.title%></h5>
-        <p class="tour-content"><i class="fa-solid fa-map-pin"></i> <%=activity.localization%></p>
-        <p class="tour-content elips"><%=activity.description%></p><br>
-        <%= link_to activity_path(activity) do %>
-          <p class="btn btn-primary place-button">See more</p>
-        <%end %>
-        <p class="tour_pricing black"><%if activity.price_per_day != 0 %>
-        From <strong>EUR <%=activity.price_per_day %></strong>
-        <%else%>
-        <%="Free activity"%>
-        <%end%>
-        </p>
-        <% end %>
+          <h5 class="tour_name"><%=activity.title%></h5>
+            <p class="tour-content"><i class="fa-solid fa-map-pin"></i> <%=activity.localization%></p>
+            <p class="tour-content elips"><%=activity.description%></p><br>
+            <%= link_to activity_path(activity) do %>
+              <p class="btn btn-primary place-button">See more</p>
+            <% end %>
+          <p class="tour_pricing black">
+            <% if activity.price_per_day != 0 %>
+              From <strong>EUR <%=activity.price_per_day %></strong>
+            <% else %>
+              <%="Free activity"%>
+            <% end %>
+          </p>
+          <% if activity.user == current_user %>
+          <%= link_to "Delete",
+            activity_path(activity),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          <% end %>
         </div>
+      <% end %>
       <% end %>
     </div>
   </div>

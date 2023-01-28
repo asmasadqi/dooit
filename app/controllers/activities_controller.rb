@@ -10,6 +10,8 @@ class ActivitiesController < ApplicationController
   def index
     if params[:query].present?
       @activities = Activity.search_by_title_description_category(params[:query])
+    elsif params[:mine].present?
+      all_activities
     else
       @activities = Activity.all
     end
@@ -50,6 +52,12 @@ class ActivitiesController < ApplicationController
   def destroy
     set_activity
     @activity.destroy
+    redirect_to activities_path
+  end
+
+  def all_activities
+    @user = current_user
+    @activities = @user.activities
   end
 end
 

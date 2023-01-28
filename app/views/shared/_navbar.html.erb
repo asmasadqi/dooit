@@ -27,13 +27,13 @@
       <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mx-auto mb-2 mt-4">
         <!-- Searchbar -->
             <%= form_with url: activities_path, method: :get, class:"dooit-search-bar" do %>
-            <%= text_field_tag :query,
-            params[:query],
-            class:"form-control search-input",
-            placeholder:"What do you want to do?"  %>
-            <%= button_tag class: "search-btn", type: "submit" do %>
-            <i class="fas fa-search search-icon"></i>
-            <% end %>
+              <%= text_field_tag :query,
+                  params[:query],
+                  class:"form-control search-input",
+                  placeholder:"What do you want to do?"  %>
+              <%= button_tag class: "search-btn", type: "submit" do %>
+              <i class="fas fa-search search-icon"></i>
+              <% end %>
             <% end %>
       </div>
       <!-- Login button-->
@@ -46,7 +46,7 @@
           <img class="avatar dropdown-toggle in-front" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="z-index: 4000;">
               <%= link_to "Host activities", "/activities/new", class: "dropdown-item" %>
-              <%= link_to "My activities", "/users/:user_id/activities", class: "dropdown-item" %>
+              <%= link_to 'My activities', activities_path(mine: true), class: "dropdown-item" %>
               <%= link_to "My bookings", "/users/:user_id/bookings", class: "dropdown-item" %>
               <%= link_to "Log out", "/users/sign_out", class: "dropdown-item", data: {turbo_method: :delete} %>
           </div>
