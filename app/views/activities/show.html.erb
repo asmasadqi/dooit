@@ -1,52 +1,67 @@
 <!-- Show activity -->
-<div class="activity">
+<div class="container activity">
   <div class="container-fluid">
-    <div class="mt-2 mb-1">
-<!-- Title -->
-    <h2><%= @activity.title %></h2>
-    </div>
+    <div class="d-flex justify-content booking-header">
+      <h2><%= @activity.title %> with <%=User.find(@activity.user_id).first_name%></h2>
+      <span class="dooit-chipp outlinee">
+        <span class="icon"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
+        <span class="label"><%= @activity.category %></span>
+      </span>
   </div>
     <div class="row mt-2 mb-1">
 <!-- Column 1-->
-      <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto mb-2 mt-4">
+      <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
 <!-- Picture-->
         <div class ="image">
-          <%= image_tag @activity.image, {:class => "activity-detail"} %>
+          <%= image_tag @activity.image, {:class => "activity-image"} %>
         </div>
         <div class= "picture">
-          <h3><%= @activity.description %></h3>
-          <p><i class="fas fa-utensils"></i>  <%= @activity.category %> </p>
-          <p><i class="fa-solid fa-map-pin"></i>  <%= @activity.localization %></p>
+          <p class="pt-3"><i class="fa-solid fa-map-pin"></i>  <%= @activity.localization %></p>
+          <h5 class="pt-3"><%= @activity.description %></h5>
         </div>
       </div>
 <!-- Column 2-->
-      <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto mb-4 mt-4">
-        <%# <div class="review col-6 p-2 d-flex flex-column justify-content-around"> %>
-<!-- Booking CTA-->
-        <%= link_to new_activity_booking_path(@activity) do%>
-        <button class="btn btn-primary" >Book now</button>
-        <%end%>
-<!-- Reviews -->
-      <div class="card-review">
-        <div class="reviews col-4 p-2">
-          <h3>Reviews</h3>
-          <% if @activity.average_rating != (1..5) %>
-            <%= "No reviews yet" %>
-          <% else %>
-            <%= @activity.average_rating.round(1) %>
-          <% end %>
-          <% @reviews.each do |review| %>
-            <p>
-              <% Review::AUTHORIZED_RATINGS.each do |number| %>
-                <i class="test fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
-              <% end %>
-            </p>
-            <p>"<%= review.comment %>" - <% user = User.find(@activity.user_id) %> <%= user.first_name %> </p>
-          <% end %>
+      <div class=" border-start sidel col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <div class="car-7">
+          <div class="container">
+            <h2 class="border-bottom pb-2 text-center">Reviews</h2>
+            <% if @activity.average_rating != (1..5) %>
+              <%="No reviews actually."%>
+            <% else %>
+              <%= @activity.average_rating.round(1) %>
+            <% end %>
+              <% @reviews.each do |review| %>
+                <p>
+                  <% Review::AUTHORIZED_RATINGS.each do |number| %>
+                    <i class="test fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
+                  <% end %>
+                </p>
+                <p class="elips " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <% user = User.find(@activity.user_id) %> <%= user.first_name %> - <%=review.comment %>
+                </p>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel"><% user = User.find(@activity.user_id) %> <%= user.first_name %> review :</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <%=review.comment%>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <p class="elips">"<% user = User.find(@activity.user_id) %> <%= user.first_name %> - <%=review.comment %>"</p>
+            <% end %>
+            <%= link_to new_activity_booking_path(@activity) do%>
+              <button class="btn btn-primary bottom-card" >Book now</button>
+            <%end%>
+          </div>
         </div>
-      </div>
-      <div>
-          <h2 class="review-pricing"><%= @activity.price_per_day %>€</h2>
       </div>
     </div>
   </div>
