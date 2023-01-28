@@ -40,7 +40,7 @@
       <img class="avatar dropdown-toggle in-front" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://media.licdn.com/dms/image/D4E03AQEgMikgpiRCRQ/profile-displayphoto-shrink_800_800/0/1665732636613?e=2147483647&v=beta&t=6e2KQAwPZfhFlLuyOJ5Vi_RTQH2DSiqi6ammJN9JFD4" />
       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="z-index: 4000;">
         <%= link_to "Host activities", "/activities/new", class: "dropdown-item" %>
-        <%= link_to "My activities", "/users/:user_id/activities", class: "dropdown-item" %>
+        <%= link_to "My activities", activities_path(mine: true), class: "dropdown-item" %>
         <%= link_to "My bookings", "/users/:user_id/bookings", class: "dropdown-item" %>
         <%= link_to "Log out", "/users/sign_out", class: "dropdown-item", data: {turbo_method: :delete} %>
         </div>
