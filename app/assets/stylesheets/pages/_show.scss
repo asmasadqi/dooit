@@ -2,22 +2,6 @@
   box-shadow: 0px 15px 10px -15px rgb(94, 92, 92);
 }
 
-button {
-  border: none;
-  border-radius: 6px;
-  padding: 14px 14px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #FF5A5F;
-  color: #FFFFFF;
-  &:hover {
-    background-color: #FFFFFF;
-    color: grey;
-    box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.3);
-
-  }
-}
-
 .flex-container {
   display: flex;
   flex-direction: row-reverse;
@@ -29,4 +13,9 @@ button {
 
 img {
   border-radius: 6px;
+}
+
+//Activity details for show page
+.activity-detail {
+  width: 600px;
 }

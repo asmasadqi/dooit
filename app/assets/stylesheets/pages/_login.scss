@@ -1,0 +1,40 @@
+.dooit-login {
+  height: 100vh;
+  display: flex;
+  .container-fluid .row {
+    height: 100vh;
+  }
+  .navbar-brand {
+    margin-top: 16px;
+    @media (min-width: 768px) {
+      position: absolute;
+      top: 0;
+    }
+  }
+  .login-side-img {
+    background-image: url(login_splash.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  .form-label, .form-control {
+    font-family: $body-font;
+  }
+  .login-form-container {
+    width: 100%;
+    max-width: 480px;
+  }
+  .registration {
+    .user_first_name, .user_last_name,
+    .user_password, .user_password_confirmation {
+      @media (min-width: 768px) {
+        flex: 0 0 auto;
+        width: 50%;
+      }
+    }
+    .user_first_name, .user_password {      
+      @media (min-width: 768px) {
+        padding-right: 0.5rem;
+      }
+    }
+  }
+}
