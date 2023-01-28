@@ -1,9 +1,32 @@
 .navglobal {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
   background: white;
   border-radius: 6px;
   position:fixed
   width 100%
+}
+
+.avatar {
+  &:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.4);
+  }
+}
+
+.logo {
+  align-items: left;
+}
+
+.avatar .dropdown-toggle .in-front{
+  &:hover {
+    background:#F4F4F4;
+    border-radius: 6px;
+  }
+}
+
+.dropdown-menu{
+  border-radius: 6px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,15 +34,9 @@
 
 }
 
-/*.form-control {
-  border-radius: 20px;
-}*/
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
 .host {
+  color: black;
+  text-decoration: none;
   border-radius: 6px;
   &:hover {
     background:#F4F4F4;
@@ -36,8 +53,10 @@
 //-----------------------------------------------------------------------------------
 
 .navbar-lewagon {
+  display: flex;
   justify-content: space-between;
   background: white;
+  align-items: center;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -45,7 +64,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 100%;
 }
 
 li {
